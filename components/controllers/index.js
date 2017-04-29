@@ -2,7 +2,7 @@ const app = angular.module('app', ['ui.bootstrap']);
 
 app.controller('MainCtrl', function () {
 
-    this.price = [];
+    this.price = {};
     this.quantity = "QTY: ";
     this.price.resources = [];
     this.totalPrice = 0;
@@ -31,7 +31,7 @@ app.controller('MainCtrl', function () {
             role: this.role,
             rate: this.rate,
             quantity: this.quantityAsNumber,
-            total: this.result,
+            total: this.result
         });
 
         this.totalPrice = this.totalPrice + this.result;
@@ -46,5 +46,18 @@ app.controller('MainCtrl', function () {
     $('.dropdown-menu').find('input').click(function (e) {
         e.stopPropagation();
     });
+
+
+    var jsonfile = require('jsonfile');
+
+    var file = './data.json';
+   // var obj = {name: 'JP'};
+
+    this.export = function () {
+
+    jsonfile.writeFile(file, this.price, function (err) {
+        console.error(err)
+    })
+    };
 });
 
