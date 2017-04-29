@@ -47,3 +47,34 @@ div#floatpanel {
 .welcome {
     margin-top: 20px;
 }
+
+/*Bootstrap Overrides*/
+
+#bootstrap-overrides .panel-primary {
+    border:none;
+    border-top:1px solid #aaaaaa;
+    margin:20px 0;
+}
+
+#bootstrap-overrides .panel {
+    box-shadow:none;
+    border-radius:0;
+    padding-top:20px;
+}
+
+#bootstrap-overrides .panel-heading {
+    background:none;
+    border:none;
+}
+
+#bootstrap-overrides .panel-title {
+    color:#2e6da4;
+    font-size:2em;
+    font-weight:bold;
+}
+
+#bootstrap-overrides .btn-primary {
+    background-image:none;
+    padding:8px 30px;
+    margin-top:10px;
+}
