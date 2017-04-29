@@ -1,0 +1,49 @@
+.nav, .pagination, .carousel, .panel-title a, input {
+    cursor: pointer;
+}
+
+input#dropdownMenu {
+    width: 30%;
+}
+
+input {
+    width: 15%;
+}
+
+button#add {
+    width: 10%;
+}
+
+/* Search section */
+.dropdown.dropdown-scroll .dropdown-menu {
+    max-height: 200px;
+    width: 60px;
+    overflow: auto;
+}
+
+.search-control {
+    padding: 5px 10px;
+}
+/* End of Search section */
+
+table#tabdetails {
+    width: 100%;
+}
+
+div#mainpanel {
+    width: 70%;
+    margin: 3% 0 0 3%;
+}
+
+div#floatpanel {
+    width: 27%;
+    margin: 0px 0px 0px 0%;
+}
+
+
+.spacer{
+    height: 20px;
+}
+.welcome {
+    margin-top: 20px;
+}
