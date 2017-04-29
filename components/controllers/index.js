@@ -28,7 +28,7 @@ app.controller('MainCtrl', function () {
     };
 
     this.addResource = function () {
-        this.resources.unshift({
+        this.price.resources.unshift({
             role: this.role,
             rate: this.rate,
             quantity: this.quantityAsNumber,
