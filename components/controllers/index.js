@@ -1,5 +1,6 @@
 const app = angular.module('app', ['ui.bootstrap']);
 
+
 app.controller('MainCtrl', function () {
 
     this.price = {};
@@ -53,9 +54,13 @@ app.controller('MainCtrl', function () {
     var file = './data.json';
    // var obj = {name: 'JP'};
 
-    this.export = function () {
 
-    jsonfile.writeFile(file, this.price, function (err) {
+
+
+
+    const {dialog} = require('electron').remote;
+    this.export = function () {
+    jsonfile.writeFile((dialog.showSaveDialog()), this.price, function (err) {
         console.error(err)
     })
     };
