@@ -2,6 +2,7 @@
 
 const electron = require('electron');
 const {app, BrowserWindow} = electron;
+const path = require('path');
 
 // Reload without rerunning app
 require('electron-reload')(__dirname);
@@ -18,7 +19,8 @@ function createWindow() {
             width: 1281,
             height: 800,
             minWidth: 1281,
-            minHeight: 800
+            minHeight: 800,
+            icon: path.join(__dirname, 'assets/icons/mac/icon.icns')
         });
 
     // and load the index.html of the app.
