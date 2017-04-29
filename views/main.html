@@ -1,4 +1,5 @@
-<div class="jumbotron welcome">
+ 
+    <div class="jumbotron welcome">
         <h2>Project Pricing Made Easier</h2>
         <p class="lead">Enter your project information below to generate a quick, easy pricing sheet.</p>
 </div>
@@ -106,7 +107,7 @@
         </div>
     </div>
 
-    <div class="panel panel-default" ng-show="planning">
+    <!--<div class="panel panel-default" ng-show="planning">
         <div class="panel-heading">
             <h3 class="panel-title">Resource Planning</h3>
         </div>
@@ -163,9 +164,10 @@
 
         
         
-    </div>
+    </div>-->
+    
 
-
+            <h3>Project Resources</h3>
     
 
             <div class="card">
@@ -191,7 +193,8 @@
             </div>
             <div class="card">
                 <div class="card-block">
-                    <h6 class="divider">Add a New Resource</h6>
+                    <h4 class="card-title">Add a Resource</h4>
+                    <h6 class="divider">Resource Information</h6>
                     <p class="form-label"><label>New Resource Role:</label></p>
                     <select class="form-control">
                       <option>Business Analyst</option>
@@ -206,11 +209,25 @@
                     <p class="form-label"><label>Project Allocation (%):</label></p>
                     <input type="text" class="form-control group-end" placeholder="50">
                     
-                    <h6 class="divider">Add Cost Information</h6>
+                    <h6 class="divider">Cost Information</h6>
                     
-                    <p class="form-label"><label>Name:</label></p>
-                    <input type="text" class="form-control" placeholder="Text input">
+                    <p class="form-label"><label>Direct Labour:</label></p>
+                    <div class="input-group">
+                      <div class="input-group-addon">$</div>
+                      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                      <div class="input-group-addon">/ hour</div>
+                    </div>
+                    
+                    <p class="form-label"><label>Billing:</label></p>
+                    <div class="input-group">
+                      <div class="input-group-addon">$</div>
+                      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                      <div class="input-group-addon">/ hour</div>
+                    </div>
+                    
+                    <button type="submit" class="btn btn-primary" ng-click="planning = true">Add Resource</button>
  
                 </div>
                 <div class="card-total incomplete"><p>GP: 0%</p></div>
             </div>
+    

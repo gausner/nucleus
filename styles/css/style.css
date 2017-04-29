@@ -67,12 +67,14 @@ div#floatpanel {
 #bootstrap-overrides .panel-heading {
     background:none;
     border:none;
+    padding:0;
 }
 
-#bootstrap-overrides .panel-title {
+#bootstrap-overrides .panel-title, #bootstrap-overrides h3 {
     color:#2e6da4;
     font-size:2em;
     font-weight:bold;
+    padding:15px;
 }
 
 #bootstrap-overrides .btn-primary {
@@ -85,6 +87,7 @@ div#floatpanel {
     border:1px solid #cccccc;
     padding:20px;
     padding-bottom:0;
+    margin:15px;
 }
 
 #bootstrap-overrides .card+.card {
@@ -103,7 +106,7 @@ margin-bottom:20px;
     margin-bottom:0;
 }
 
-#bootstrap-overrides .card input, #bootstrap-overrides .card select {
+#bootstrap-overrides .card input, #bootstrap-overrides .card select, #bootstrap-overrides .card .input-group {
     margin-bottom:10px;
 }
 
@@ -115,6 +118,10 @@ margin-bottom:20px;
     text-transform:uppercase;
     color:#2e6da4;
     font-weight:600;
+}
+
+#bootstrap-overrides h4+h6 {
+    margin-top:20px;
 }
 
 #bootstrap-overrides .divider {
