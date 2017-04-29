@@ -2,6 +2,30 @@
     cursor: pointer;
 }
 
+#bootstrap-overrides #mainpanel {
+    width:80%;
+    margin:0 auto;
+}
+
+
+
+
+
+#bootstrap-overrides .navbar-brand{
+    background:url('../../assets/icons/img/logo_pricetag.svg') 0 8px no-repeat;
+    background-size:50px;
+    padding-left:60px;
+    margin-left:25px;
+}
+
+#bootstrap-overrides .navbar-nav a {
+    color:#2e6da4;
+}
+
+#bootstrap-overrides .navbar-nav .active a {
+    color:#044677;
+}
+
 input#dropdownMenu {
     width: 30%;
 }
@@ -31,7 +55,7 @@ table#tabdetails {
 }
 
 div#mainpanel {
-    width: 70%;
+    /*width: 70%;*/
     margin: 3% 0 0 3%;
 }
 
@@ -161,4 +185,45 @@ margin-bottom:20px;
 
 #bootstrap-overrides .card .group-end {
     margin-bottom:25px;
+}
+
+#bootstrap-overrides footer.navbar-fixed-bottom {
+    padding:20px;
+    border-top:1px solid #cccccc;
+    background:#4d4d4d;
+    font-weight:100;
+    color:#aaaaaa;
+}
+
+#bootstrap-overrides footer.navbar-fixed-bottom .content {
+    width:80%;
+    margin:0 auto;
+}
+
+#bootstrap-overrides footer.navbar-fixed-bottom h6 {
+    color:#33c1ff;
+}
+
+#bootstrap-overrides footer.navbar-fixed-bottom p {
+    display:inline-block;
+    margin:0 8px;
+    font-weight:300;
+    color:#efefef;
+}
+
+#bootstrap-overrides footer.navbar-fixed-bottom label {
+    font-weight:100;
+    color:#ffffff;
+}
+
+#bootstrap-overrides footer.navbar-fixed-bottom p:first-child {
+    margin-left:0;
+}
+
+#bootstrap-overrides footer.navbar-fixed-bottom p:last-child {
+    margin-right:0;
+}
+
+#bootstrap-overrides .positive {
+    color:#1ad882;
 }
