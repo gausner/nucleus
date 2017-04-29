@@ -1,4 +1,18 @@
-const app = angular.module('app', ['ui.bootstrap']);
+const app = angular.module('app', ['ui.bootstrap',"ngRoute"]);
+
+app.config(function($routeProvider,$locationProvider) {
+    $routeProvider
+        .when("/", {
+            templateUrl : "views/main.html"
+        })
+        .when("/summary", {
+            templateUrl : "views/summary.html",
+            controller: 'MainCtrl'
+        })
+        .otherwise({redirectTo : '/'});
+});/**
+ * Created by pguindon on 2017-04-29.
+ */
 
 
 app.controller('MainCtrl', function () {

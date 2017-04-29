@@ -9,10 +9,11 @@
     <link rel='stylesheet prefetch' href='./node_modules/bootstrap/dist/css/bootstrap-theme.min.css'>
     <link rel="stylesheet" href="styles/css/style.css">
     <link href="styles/css/jumbotron-narrow.css" rel="stylesheet">
-
     <script type="text/javascript" src="./node_modules/angular/angular.js"></script>
+    <script src="./node_modules/angular-route/angular-route.min.js"></script>
     <script src='js/ui-bootstrap-tpls-0.11.2.js'></script>
     <script src="components/controllers/index.js"></script>
+
     <script src="js/float-panel.js"></script>
 </head>
 
@@ -82,16 +83,17 @@
                 <ul class="nav navbar-nav">
                     <li class="active"><a href="#">Pricing</a></li>
                     <li><a href="#">Calculators</a></li>
-                    <li><a href="#">Feedback</a></li>
+                    <li><a href="#!summary">Feedback</a></li>
                 </ul>
             </div>
         </div>
     </nav>
 
-    <div class="jumbotron welcome">
+    <ng-view></ng-view>
+<!--    <div class="jumbotron welcome">
         <h2>Project Pricing Made Easier</h2>
         <p class="lead">Start by entering the Project information</p>
-        <!--<p><a class="btn btn-lg btn-success" href="#" role="button" ng-click="start = true">Let's Get Started</a></p>-->
+        &lt;!&ndash;<p><a class="btn btn-lg btn-success" href="#" role="button" ng-click="start = true">Let's Get Started</a></p>&ndash;&gt;
     </div>
 
     <div class="panel panel-primary">
@@ -251,7 +253,7 @@
 
             </div>
         </div>
-    </div>
+    </div>-->
 
 
 

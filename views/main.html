@@ -1,0 +1,164 @@
+<div class="jumbotron welcome">
+    <h2>Project Pricing Made Easier</h2>
+    <p class="lead">Start by entering the Project information</p>
+    <!--<p><a class="btn btn-lg btn-success" href="#" role="button" ng-click="start = true">Let's Get Started</a></p>-->
+</div>
+
+<div class="panel panel-primary">
+    <div class="panel-heading">
+        <h3 class="panel-title">Project Information</h3>
+    </div>
+    <div class="panel-body">
+
+        <form name="summaryForm">
+            <div class="form-group has-error">
+                <label for="clientName">Client Name</label>
+                <input type="text" class="form-control" id="clientName" placeholder="Client Name" ng-model="mainctrl.price.summary.clientName" required>
+            </div>
+            <div class="form-group has-error">
+                <label for="optName">Opportunity Name</label>
+                <input type="text" class="form-control" id="optName" placeholder="Opportunity Name" ng-model="mainctrl.price.summary.optName" required>
+            </div>
+            <div class="form-group">
+                <label for="practiceArea">Practice Area</label>
+                <select id="practiceArea" class="form-control" ng-model="mainctrl.price.summary.practiceArea">
+                    <option>Apps Data Management</option>
+                    <option>Apps Development</option>
+                    <option>Apps Management</option>
+                    <option>Business Intelligence</option>
+                    <option>Infrastructure Asset Inventory</option>
+                    <option>Infrastructure Asset Remarketing & Disposal</option>
+                    <option>Infrastructure CDST</option>
+                    <option>Infrastructure Deployment</option>
+                    <option>Infrastructure Support Services</option>
+                    <option>IT Service Management</option>
+                    <option>Manage Services</option>
+                    <option>Network Services</option>
+                    <option>Quality Assurance & Testing</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="priceType">Price Structure</label>
+                <select id="priceType" class="form-control" ng-model="mainctrl.price.summary.priceStucture">
+                    <option>Time & Material</option>
+                    <option>Fix Fee</option>
+                    <option>Per Unit</option>
+                    <option>Time & Material To Exeed</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button ng-disabled="summaryForm.$invalid" type="submit" class="btn btn-primary" ng-click="team = true">Continue</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="panel panel-primary" ng-show="team">
+    <div class="panel-heading">
+        <h3 class="panel-title">Preperation Team</h3>
+    </div>
+    <div class="panel-body">
+        <form>
+            <div class="form-group">
+                <label for="smoArchitect">SMO Architects</label>
+                <select id="smoArchitect" class="form-control" ng-model="mainctrl.price.team.smo">
+                    <option>Beily, Robertt</option>
+                    <option>Boggalli Raghavendra, Prabhanjana</option>
+                    <option>Cardinal, Meacheal John</option>
+                    <option>Ennis, Micheal Wayne</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="propManager">Proposal Manage</label>
+                <select id="propManager" class="form-control" ng-model="mainctrl.price.team.proposalmng">
+                    <option>Fox, Penny Lynn</option>
+                    <option>Hansel, karen R</option>
+                    <option>Harris, Diana</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="primPriceApp">Primary Price Approver</label>
+                <select id="primPriceApp" class="form-control" ng-model="mainctrl.price.team.ppa">
+                    <option>Bernal, Carli Rae</option>
+                    <option>Scott, Allison Jean</option>
+                    <option>Stone, Melissa Gail</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="pracArchitect">Practice Architect</label>
+                <select id="pracArchitect" class="form-control" ng-model="mainctrl.price.team.pa">
+                    <option>Mazzetti, Sharon Coles</option>
+                    <option>Mooney, Ashley Lane</option>
+                    <option>patrick, Kory Devvon</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <label for="solutionArchitect">Solution Architect</label>
+                <select id="solutionArchitect" class="form-control" ng-model="mainctrl.price.team.sa">
+                    <option>Adams, james Archibald</option>
+                    <option>Biswas, Arpan A</option>
+                    <option>Clarck, Sean</option>
+                </select>
+            </div>
+            <div class="form-group">
+                <button type="submit" class="btn btn-primary" ng-click="planning = true">Continue</button>
+            </div>
+        </form>
+    </div>
+</div>
+
+<div class="panel panel-default" ng-show="planning">
+    <div class="panel-heading">
+        <h3 class="panel-title">Resource Planning</h3>
+    </div>
+    <div class="panel-body">
+        <div>
+            <div class="dropdown dropdown-scroll">
+                <input placeholder="Click here to select a resource..." class="dropdown-toggle alert alert-info"
+                       type="text" id="dropdownMenu" data-toggle="dropdown" value="{{ mainctrl.role }}">
+
+                <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
+                    <li role="presentation">
+                        <div class="input-group input-group-sm search-control"> <span class="input-group-addon">
+                    <span class="glyphicon glyphicon-search"></span></span>
+                            <input type="text" class="form-control" placeholder="Search..." ng-model="mainctrl.query"/>
+                        </div>
+                    </li>
+                    <li role="presentation" ng-repeat='choice in mainctrl.items | filter:mainctrl.query' ng-click="mainctrl.selectOption(choice)">
+                        <a href>{{ choice.role }}</a>
+                    </li>
+                </ul>
+
+                <input id="rate" class="alert alert-info" type="text" value="Rate: {{ mainctrl.rate }}">
+                <input ng-model="mainctrl.quantity" id="quantity" class="alert alert-info" type="text"
+                       ng-blur="mainctrl.countResource()">
+                <input id="result" class="alert alert-info" type="text" value="Total: {{mainctrl.result ?  mainctrl.result : ''}}">
+                <button id="add" class="btn-success alert" type="button" ng-click="mainctrl.addResource()">Add</button>
+
+            </div>
+
+            <h4>Allocated resources</h4>
+            <table id="tabdetails" class="table table-striped">
+                <thead>
+                <tr>
+                    <th>Role</th>
+                    <th>Rate</th>
+                    <th>Quantity</th>
+                    <th>Total</th>
+                </tr>
+                </thead>
+                <tr ng-repeat="resource in mainctrl.price.resources">
+                    <td>
+                        {{resource.role}}
+                    </td>
+                    <td>
+                        <span>{{resource.rate}}</span>
+                    </td>
+                    <td>{{resource.quantity}}</td>
+                    <td>{{resource.total}}</td>
+                </tr>
+            </table>
+
+        </div>
+    </div>
+</div>
