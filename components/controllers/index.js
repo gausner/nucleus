@@ -1,18 +1,27 @@
-const app = angular.module('app', ['ui.bootstrap',"ngRoute"]);
+const app = angular.module('app', ['ui.bootstrap', "ngRoute"]);
 
-app.config(function($routeProvider,$locationProvider) {
+app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
         .when("/", {
-            templateUrl : "views/main.html"
+            templateUrl: "views/main.html"
         })
         .when("/summary", {
-            templateUrl : "views/summary.html",
+            templateUrl: "views/summary.html",
             controller: 'MainCtrl'
         })
-        .otherwise({redirectTo : '/'});
-});/**
+        .otherwise({redirectTo: '/'});
+});
+/**
  * Created by pguindon on 2017-04-29.
  */
+
+
+
+app.directive('myCustomer', function () {
+    return {
+        templateUrl: './views/card.html'
+    };
+});
 
 app.controller('MainCtrl', function () {
 
@@ -57,12 +66,22 @@ app.controller('MainCtrl', function () {
     };
 
     this.addResource = function () {
+
+        console.log("dd " + this.selectedRole);
+
         this.price.resources.unshift({
-            role: this.role,
-            rate: this.rate,
-            quantity: this.quantityAsNumber,
-            total: this.result
+            role: this.selectedRole
         });
+
+        console.log("ff " + this.price.resources[0].role.costs[1].amount)
+
+
+        // this.price.resources.unshift({
+        //     role: this.role,
+        //     rate: this.rate,
+        //     quantity: this.quantityAsNumber,
+        //     total: this.result
+        // });
 
         this.totalPrice = this.totalPrice + this.result;
         this.role = "";

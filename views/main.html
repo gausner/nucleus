@@ -167,39 +167,21 @@
     <div class="panel-primary">
 
             <h3>Project Resources</h3>
-    
 
-            <div class="card">
-                <div class="card-block">
-                    <h4 class="card-title">Business Analyst</h4>
-                    <p class="card-subtitle mb-2 text-muted divider">Joe Smith at 50% Allocation</p>
-                    <h6>Resource Costs</h6>
-                    <p class="nobreak"><label>Direct Labour Cost:</label> $25/h</p>
-                    <p><label>Billing Cost:</label> $10/h</p>
-                </div>
-                <div class="card-total"><p>GP: 60%</p></div>
-            </div>
-    
-            <div class="card">
-                <div class="card-block">
-                    <h4 class="card-title">Senior Developer</h4>
-                    <p class="card-subtitle mb-2 text-muted divider">Bob Dylan at 100% Allocation</p>
-                    <h6>Resource Costs</h6>
-                    <p class="nobreak"><label>Direct Labour Cost:</label> $30/h</p>
-                    <p><label>Billing Cost:</label> $15/h</p>
-                </div>
-                <div class="card-total below"><p>GP: 40%</p></div>
-            </div>
+    <div my-customer></div>
+
             <div class="card">
                 <div class="card-block">
                     <h4 class="card-title">Add a Resource</h4>
                     <h6 class="divider">Resource Information</h6>
                     <p class="form-label"><label>New Resource Role:</label></p>
-                    <select class="form-control">
-                      <option>Business Analyst</option>
-                      <option>Developer&mdash;Senior</option>
-                      <option>Developer&mdash;Junior</option>
-                      <option>Developer&mdash;Lead</option>
+
+
+                    <select class="form-control" ng-model="mainctrl.selectedRole" ng-options="x.role for x in mainctrl.data.roles">
+                      <!--<option>Business Analyst</option>-->
+                      <!--<option>Developer&mdash;Senior</option>-->
+                      <!--<option>Developer&mdash;Junior</option>-->
+                      <!--<option>Developer&mdash;Lead</option>-->
                     </select>
                     
                     <p class="form-label"><label>Name:</label></p>
@@ -223,8 +205,12 @@
                       <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
                       <div class="input-group-addon">/ hour</div>
                     </div>
+
+
                     
-                    <button type="submit" class="btn btn-primary" ng-click="planning = true">Add Resource</button>
+                    <!--<button type="submit" class="btn btn-primary" ng-click="planning = true">Add Resource</button>-->
+
+                    <button type="submit" class="btn btn-primary" ng-click="mainctrl.addResource()">Add Resource</button>
  
                 </div>
                 <div class="card-total incomplete"><p>GP: 0%</p></div>
