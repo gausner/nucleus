@@ -107,6 +107,10 @@ margin-bottom:20px;
     margin-bottom:10px;
 }
 
+#bootstrap-overrides .card .input-group input {
+    margin-bottom:0;
+}
+
 #bootstrap-overrides h6 {
     text-transform:uppercase;
     color:#2e6da4;
