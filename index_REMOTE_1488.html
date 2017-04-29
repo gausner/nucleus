@@ -1,9 +1,101 @@
-<div class="jumbotron welcome">
-        <h2>Project Pricing Made Easier</h2>
-        <p class="lead">Enter your project information below to generate a quick, easy pricing sheet.</p>
+<!DOCTYPE html>
+<html ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <title>Price tag</title>
+    <!--<script src="http://ajax.googleapis.com/ajax/libs/jquery/2.1.1/jquery.min.js"></script>-->
+    <script>window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.js');</script>
+    <link rel='stylesheet prefetch' href='./node_modules/bootstrap/dist/css/bootstrap.min.css'>
+    <link rel='stylesheet prefetch' href='./node_modules/bootstrap/dist/css/bootstrap-theme.min.css'>
+    <link rel="stylesheet" href="styles/css/style.css">
+    <link href="styles/css/jumbotron-narrow.css" rel="stylesheet">
+
+    <script type="text/javascript" src="./node_modules/angular/angular.js"></script>
+    <script src='js/ui-bootstrap-tpls-0.11.2.js'></script>
+    <script src="components/controllers/index.js"></script>
+    <script src="js/float-panel.js"></script>
+</head>
+
+<body id="bootstrap-overrides" ng-controller="MainCtrl as mainctrl">
+
+<div id="floatpanel" class="container float-panel fixed" style="position: fixed; right: 0; top: 32%;">
+
+    <div class="panel panel-info" ng-show="planning">
+        <div class="panel-heading">Financial Summary</div>
+        <div class="panel-body">
+            <div class="row">
+                <div class="col-xs-8">
+                    <h6>Gross Project Revenue</h6>
+                </div>
+                <div class="col-xs-4">
+                    <h6>${{mainctrl.totalPrice}}</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <h6>Net Project Revenue</h6>
+                </div>
+                <div class="col-xs-4">
+                    <h6>$2,000,000</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <h6>Total Labor Cost</h6>
+                </div>
+                <div class="col-xs-4">
+                    <h6>$2,000,000</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <h6 class="text-success">Gross Profit</h6>
+                </div>
+                <div class="col-xs-4">
+                    <h6 class="text-success">$1,000,000</h6>
+                </div>
+            </div>
+            <div class="row">
+                <div class="col-xs-8">
+                    <h6 class="text-success">Gross Profit PCT</h6>
+                </div>
+                <div class="col-xs-4">
+                    <h6 class="text-success">50%</h6>
+                </div>
+            </div>
+        </div>
+    </div>
 </div>
 
-<div class="panel panel-primary">
+<div id="mainpanel" class="container">
+
+    <nav class="navbar navbar-default navbar-fixed-top">
+        <div class="spacer"></div>
+        <div class="container-fluid">
+            <div class="navbar-header">
+                <button type="button" class="collapsed navbar-toggle" data-toggle="collapse" data-target="#bs-example-navbar-collapse-6" aria-expanded="false">
+                <span class="sr-only">Toggle navigation</span> <span class="icon-bar"></span>
+                <span class="icon-bar"></span> <span class="icon-bar"></span>
+            </button>
+            <a href="#" class="navbar-brand">PriceTag</a>
+            </div>
+            <div class="collapse navbar-collapse" id="bs-example-navbar-collapse-6">
+                <ul class="nav navbar-nav">
+                    <li class="active"><a href="#">Pricing</a></li>
+                    <li><a href="#">Calculators</a></li>
+                    <li><a href="#">Feedback</a></li>
+                </ul>
+            </div>
+        </div>
+    </nav>
+
+    <div class="jumbotron welcome">
+        <h2>Project Pricing Made Easier</h2>
+        <p class="lead">Enter your project information below to generate a quick, easy pricing sheet.</p>
+        <!--<p><a class="btn btn-lg btn-success" href="#" role="button" ng-click="start = true">Let's Get Started</a></p>-->
+    </div>
+
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">Project Information</h3>
         </div>
@@ -146,7 +238,7 @@
                         <th>Total</th>
                     </tr>
                     </thead>
-                    <tr ng-repeat="resource in mainctrl.price.resources">
+                    <tr ng-repeat="resource in mainctrl.resources">
                         <td>
                             {{resource.role}}
                         </td>
@@ -160,11 +252,10 @@
 
             </div>
         </div>
-
+        
         
         
     </div>
-
 
     
 
@@ -214,3 +305,10 @@
                 </div>
                 <div class="card-total incomplete"><p>GP: 0%</p></div>
             </div>
+
+</div>
+    
+    
+
+</body>
+</html>
