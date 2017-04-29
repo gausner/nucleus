@@ -14,13 +14,28 @@ app.config(function($routeProvider,$locationProvider) {
  * Created by pguindon on 2017-04-29.
  */
 
-
 app.controller('MainCtrl', function () {
 
     this.price = {};
     this.quantity = "QTY: ";
     this.price.resources = [];
     this.totalPrice = 0;
+
+    this.data = {};
+    this.data.roles = [
+        {
+            role: "QA", costs: [
+            {cost: "dl", amount: "30"},
+            {cost: "bill", amount: "35"}
+        ]
+        },
+        {
+            role: "Dev", costs: [
+            {cost: "dl", amount: "40"},
+            {cost: "bill", amount: "45"}
+        ]
+        }
+    ];
 
     this.items = [
         {role: "QA Tech/Specialist I", rate: "20"},
@@ -57,7 +72,7 @@ app.controller('MainCtrl', function () {
         this.result = "";
     };
 
-    // jQuery
+// jQuery
     $('.dropdown-menu').find('input').click(function (e) {
         e.stopPropagation();
     });
@@ -66,17 +81,15 @@ app.controller('MainCtrl', function () {
     var jsonfile = require('jsonfile');
 
     var file = './data.json';
-   // var obj = {name: 'JP'};
-
-
-
+// var obj = {name: 'JP'};
 
 
     const {dialog} = require('electron').remote;
     this.export = function () {
-    jsonfile.writeFile((dialog.showSaveDialog()), this.price, function (err) {
-        console.error(err)
-    })
+        jsonfile.writeFile((dialog.showSaveDialog()), this.price, function (err) {
+            console.error(err)
+        })
     };
-});
+})
+;
 
