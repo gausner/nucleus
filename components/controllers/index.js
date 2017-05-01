@@ -29,8 +29,19 @@ app.directive('phaseCard', function () {
     };
 });
 
+app.directive('showtab',
+    function () {
+        return {
+            link: function (scope, element, attrs) {
+                element.click(function(e) {
+                    e.preventDefault();
+                    $(element).tab('show');
+                });
+            }
+        };
+    });
 
-app.controller('MainCtrl', function ($scope, $location, $anchorScroll) {
+app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout) {
 
     this.price = {};
     this.quantity = "QTY: ";
@@ -119,8 +130,11 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll) {
 
     //Anchor scrolling
     $scope.scrollTo = function(id) {
-        $location.hash(id);
-        $anchorScroll();
+        $timeout(function() {
+            $location.hash(id);
+            $anchorScroll();
+        }, 50)
+
     };
 
 

@@ -10,6 +10,7 @@
     <link rel="stylesheet" href="styles/css/style.css">
     <link href="styles/css/jumbotron-narrow.css" rel="stylesheet">
     <script type="text/javascript" src="./node_modules/angular/angular.js"></script>
+    <script type="text/javascript" src="./node_modules/bootstrap/dist/js/bootstrap.js"></script>
     <script src="./node_modules/angular-route/angular-route.min.js"></script>
     <script src='js/ui-bootstrap-tpls-0.11.2.js'></script>
     <script src="components/controllers/index.js"></script>
@@ -19,7 +20,7 @@
 
 <body id="bootstrap-overrides" ng-controller="MainCtrl as mainctrl">
 
-<div id="floatpanel" class="container float-panel fixed" style="position: fixed; right: 0; top: 32%;">
+<!--<div id="floatpanel" class="container float-panel fixed" style="position: fixed; right: 0; top: 32%;">
 
     <div class="panel panel-info" ng-show="planning">
         <div class="panel-heading">Financial Summary</div>
@@ -66,7 +67,8 @@
             </div>
         </div>
     </div>
-</div>
+
+</div>-->
 
 <div id="mainpanel" class="container">
 
@@ -88,21 +90,38 @@
     <ng-view></ng-view>
 
     </div>
-    
 
- <footer class="navbar-default navbar-fixed-bottom">
-  <div class="container-fluid">
-      <div class="content">
-        <h6>Financial Summary</h6>
-        <div class="figures">
-            <p><label>Gross Revenue:</label> $600,000</p> |
-            <p><label>Net Revenue:</label> $300,000</p> |
-            <p><label>Labour:</label> $100,000</p> |
-            <p><label>Profit:</label> $300,000 = <span class="positive">50%</span></p>
+<div>
+<footer class="navbar-default navbar-fixed-bottom">
+
+    <ul class="nav nav-tabs" role="tablist">
+        <li  role="presentation" class="active"><a href="#home" showtab="" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
+        <li  role="presentation"><a href="#profile" showtab="" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
+        <li  role="presentation"><a href="#messages"showtab="" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
+        <li  role="presentation"><a href="#settings" showtab="" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
+    </ul>
+
+    <!-- Tab panes -->
+    <div class="tab-content">
+        <div role="tabpanel" class="tab-pane active" id="home">
+            <div class="container-fluid">
+                <div class="content">
+                    <h6>Financial Summary</h6>
+                    <div class="figures">
+                        <p><label>Gross Revenue:</label> $600,000</p> |
+                        <p><label>Net Revenue:</label> $300,000</p> |
+                        <p><label>Labour:</label> $100,000</p> |
+                        <p><label>Profit:</label> $300,000 = <span class="positive">50%</span></p>
+                    </div>
+                </div>
+            </div>
         </div>
-      </div>
-  </div>
-</footer>  
+        <div role="tabpanel" class="tab-pane" id="profile">sada</div>
+        <div role="tabpanel" class="tab-pane" id="messages">dsfs</div>
+        <div role="tabpanel" class="tab-pane" id="settings">sdfsdf</div>
+    </div>
+    
+</footer>
 
 
     
