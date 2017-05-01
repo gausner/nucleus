@@ -23,6 +23,13 @@ app.directive('myCustomer', function () {
     };
 });
 
+app.directive('phaseCard', function () {
+    return {
+        templateUrl: './views/phase.html'
+    };
+});
+
+
 app.controller('MainCtrl', function ($scope, $location, $anchorScroll) {
 
     this.price = {};
@@ -73,7 +80,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll) {
             role: this.selectedRole
         });
 
-        console.log("ff " + this.price.resources[0].role.costs[1].amount)
+        //console.log("ff " + this.price.resources[0].role.costs[1].amount)
 
 
         // this.price.resources.unshift({
