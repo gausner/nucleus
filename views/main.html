@@ -46,13 +46,13 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <button ng-disabled="summaryForm.$invalid" type="submit" class="btn btn-primary" ng-click="team = true">Continue</button>
+                    <button type="submit" ng-click="scrollTo('prepteamGroup')" class="btn btn-primary" >Continue</button>
                 </div>
             </form>
         </div>
     </div>
 
-    <div class="panel panel-primary" ng-show="team">
+    <div class="panel panel-primary" id="prepteamGroup">
         <div class="panel-heading">
             <h3 class="panel-title">Preperation Team</h3>
         </div>
@@ -100,7 +100,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <button type="submit" class="btn btn-primary" ng-click="planning = true">Continue</button>
+                    <button type="submit" class="btn btn-primary" ng-click="scrollTo('projectResources')">Continue</button>
                 </div>
             </form>
         </div>
@@ -164,7 +164,7 @@
         
         
     </div>-->
-    <div class="panel-primary">
+    <div class="panel-primary" id="projectResources">
 
             <h3>Project Resources</h3>
 

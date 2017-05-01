@@ -23,7 +23,7 @@ app.directive('myCustomer', function () {
     };
 });
 
-app.controller('MainCtrl', function () {
+app.controller('MainCtrl', function ($scope, $location, $anchorScroll) {
 
     this.price = {};
     this.quantity = "QTY: ";
@@ -109,6 +109,14 @@ app.controller('MainCtrl', function () {
             console.error(err)
         })
     };
+
+    //Anchor scrolling
+    $scope.scrollTo = function(id) {
+        $location.hash(id);
+        $anchorScroll();
+    };
+
+
 })
 ;
 
