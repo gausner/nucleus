@@ -1,6 +1,7 @@
 const app = angular.module('app', ['ui.bootstrap', "ngRoute"]);
 
 app.config(function ($routeProvider, $locationProvider) {
+
     $routeProvider
         .when("/main", {
             templateUrl: "views/main.html"
@@ -40,7 +41,10 @@ app.directive('showtab',
         };
     });
 
+
+
 app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout) {
+
 
     this.price = {};
     this.quantity = "QTY: ";
@@ -62,6 +66,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         ]
         }
     ];
+
 
     this.items = [
         {role: "QA Tech/Specialist I", rate: "20"},
