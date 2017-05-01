@@ -92,19 +92,21 @@
     </nav>
 
     <ng-view></ng-view>
+    
 
     </div>
 
 
-<footer class="navbar-default navbar-fixed-bottom">
 
+<div class="sticky-footer navbar-fixed-bottom">
+    
     <ul class="nav nav-tabs" role="tablist">
         <li  role="presentation" class="active"><a href="#home" showtab="" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
         <li  role="presentation"><a href="#profile" showtab="" aria-controls="profile" role="tab" data-toggle="tab">Profile</a></li>
         <li  role="presentation"><a href="#messages"showtab="" aria-controls="messages" role="tab" data-toggle="tab">Messages</a></li>
         <li  role="presentation"><a href="#settings" showtab="" aria-controls="settings" role="tab" data-toggle="tab">Settings</a></li>
     </ul>
-
+    <footer class="navbar-default">
     <!-- Tab panes -->
     <div class="tab-content">
         <div role="tabpanel" class="tab-pane active" id="home">
@@ -126,6 +128,7 @@
     </div>
 
 </footer>
+    </div>
 
 </body>
 </html>
