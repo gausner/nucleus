@@ -2,14 +2,13 @@ const app = angular.module('app', ['ui.bootstrap', "ngRoute"]);
 
 app.config(function ($routeProvider, $locationProvider) {
     $routeProvider
-        .when("/", {
+        .when("/main", {
             templateUrl: "views/main.html"
         })
         .when("/summary", {
-            templateUrl: "views/summary.html",
-            controller: 'MainCtrl'
+            templateUrl: "views/summary.html"
         })
-        .otherwise({redirectTo: '/'});
+        .otherwise({redirectTo: '/main'});
 });
 /**
  * Created by pguindon on 2017-04-29.
