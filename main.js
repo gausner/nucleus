@@ -24,7 +24,7 @@ function createWindow() {
         });
 
     // and load the index.html of the app.
-    mainWindow.loadURL(`file://${__dirname}/index.html`);
+    mainWindow.loadURL(`file://${__dirname}/login.html`);
 
     // Open the DevTools.
     mainWindow.webContents.openDevTools();
@@ -45,3 +45,8 @@ function createWindow() {
 // Some APIs can only be used after this event occurs.
 app.on('ready', createWindow);
 
+exports.openWindow = (filename) => {
+ let win = new BrowserWindow({width: 800, height: 600});
+ // win.loadURL(`file://${__dirname}/` + filename + `.html`);
+ win.loadURL(`file://${__dirname}/${filename}.html`);
+};
