@@ -115,64 +115,7 @@
         </div>
     </div>
 
-    <!--<div class="panel panel-default" ng-show="planning">
-        <div class="panel-heading">
-            <h3 class="panel-title">Resource Planning</h3>
-        </div>
-        <div class="panel-body">
-            <div>
-                <div class="dropdown dropdown-scroll">
-                    <input placeholder="Click here to select a resource..." class="dropdown-toggle alert alert-info"
-                           type="text" id="dropdownMenu" data-toggle="dropdown" value="{{ mainctrl.role }}">
 
-                    <ul class="dropdown-menu" role="menu" aria-labelledby="dropdownMenu">
-                        <li role="presentation">
-                            <div class="input-group input-group-sm search-control"> <span class="input-group-addon">
-                    <span class="glyphicon glyphicon-search"></span></span>
-                                <input type="text" class="form-control" placeholder="Search..." ng-model="mainctrl.query"/>
-                            </div>
-                        </li>
-                        <li role="presentation" ng-repeat='choice in mainctrl.items | filter:mainctrl.query' ng-click="mainctrl.selectOption(choice)">
-                            <a href>{{ choice.role }}</a>
-                        </li>
-                    </ul>
-
-                    <input id="rate" class="alert alert-info" type="text" value="Rate: {{ mainctrl.rate }}">
-                    <input ng-model="mainctrl.quantity" id="quantity" class="alert alert-info" type="text"
-                           ng-blur="mainctrl.countResource()">
-                    <input id="result" class="alert alert-info" type="text" value="Total: {{mainctrl.result ?  mainctrl.result : ''}}">
-                    <button id="add" class="btn-success alert" type="button" ng-click="mainctrl.addResource()">Add</button>
-
-                </div>
-
-                <h4>Allocated resources</h4>
-                <table id="tabdetails" class="table table-striped">
-                    <thead>
-                    <tr>
-                        <th>Role</th>
-                        <th>Rate</th>
-                        <th>Quantity</th>
-                        <th>Total</th>
-                    </tr>
-                    </thead>
-                    <tr ng-repeat="resource in mainctrl.price.resources">
-                        <td>
-                            {{resource.role}}
-                        </td>
-                        <td>
-                            <span>{{resource.rate}}</span>
-                        </td>
-                        <td>{{resource.quantity}}</td>
-                        <td>{{resource.total}}</td>
-                    </tr>
-                </table>
-
-            </div>
-        </div>
-
-        
-        
-    </div>-->
     <div class="panel-primary" id="projectSchedule">
 
         <h3>Project Schedule</h3>

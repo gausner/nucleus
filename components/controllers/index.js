@@ -1,15 +1,15 @@
 const app = angular.module('app', ['ui.bootstrap', "ngRoute"]);
 
 app.config(function ($routeProvider, $locationProvider) {
+
     $routeProvider
-        .when("/", {
+        .when("/main", {
             templateUrl: "views/main.html"
         })
         .when("/summary", {
-            templateUrl: "views/summary.html",
-            controller: 'MainCtrl'
+            templateUrl: "views/summary.html"
         })
-        .otherwise({redirectTo: '/'});
+        .otherwise({redirectTo: '/main'});
 });
 /**
  * Created by pguindon on 2017-04-29.
@@ -29,8 +29,22 @@ app.directive('phaseCard', function () {
     };
 });
 
+app.directive('showtab',
+    function () {
+        return {
+            link: function (scope, element, attrs) {
+                element.click(function(e) {
+                    e.preventDefault();
+                    $(element).tab('show');
+                });
+            }
+        };
+    });
 
-app.controller('MainCtrl', function ($scope, $location, $anchorScroll) {
+
+
+app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout) {
+
 
     this.price = {};
     this.quantity = "QTY: ";
@@ -52,6 +66,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll) {
         ]
         }
     ];
+
 
     this.items = [
         {role: "QA Tech/Specialist I", rate: "20"},
@@ -119,8 +134,11 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll) {
 
     //Anchor scrolling
     $scope.scrollTo = function(id) {
-        $location.hash(id);
-        $anchorScroll();
+        $timeout(function() {
+            $location.hash(id);
+            $anchorScroll();
+        }, 50)
+
     };
 
 
