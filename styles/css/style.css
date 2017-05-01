@@ -268,3 +268,8 @@ margin-bottom:20px;
 #loginForm {
 margin-top: 50px;
 }
+
+/* Validation for Project Resources */
+input.ng-invalid, select.ng-invalid {
+    border-color: red;
+}

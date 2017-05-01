@@ -1,4 +1,4 @@
-const app = angular.module('app', ['ui.bootstrap', "ngRoute"]);
+const app = angular.module('app', ['ui.bootstrap', "ngRoute", "ngMessages"]);
 
 app.config(function ($routeProvider, $locationProvider) {
 
@@ -57,8 +57,6 @@ const roles = [
 ];
 
 app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout) {
-
-
     this.price = {};
     this.quantity = "QTY: ";
     this.price.resources = [];
@@ -95,6 +93,8 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         });
 
         this.data.roles = JSON.parse(JSON.stringify(roles));
+        this.resourceName = "";
+        this.resourceAllocation = "";
     };
 
 // jQuery
