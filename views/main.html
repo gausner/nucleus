@@ -147,41 +147,39 @@
 
             <h3>Project Resources</h3>
 
-    <div my-customer></div>
+    <div project-resource=""></div>
 
             <div class="card">
                 <div class="card-block">
                     <h4 class="card-title">Add a Resource</h4>
                     <h6 class="divider">Resource Information</h6>
+
                     <p class="form-label"><label>New Resource Role:</label></p>
-
-
                     <select class="form-control" ng-model="mainctrl.selectedRole" ng-options="x.role for x in mainctrl.data.roles">
-                      <!--<option>Business Analyst</option>-->
-                      <!--<option>Developer&mdash;Senior</option>-->
-                      <!--<option>Developer&mdash;Junior</option>-->
-                      <!--<option>Developer&mdash;Lead</option>-->
                     </select>
-                    
+
                     <p class="form-label"><label>Name:</label></p>
-                    <input type="text" class="form-control" placeholder="Joe Smith...">
+                    <input ng-model="mainctrl.resourceName" type="text" class="form-control" placeholder="Put a name...">
+                    <!--<input type="text" class="form-control" placeholder="Joe Smith...">-->
                     
                     <p class="form-label"><label>Project Allocation (%):</label></p>
-                    <input type="text" class="form-control group-end" placeholder="50">
+                    <input ng-model="mainctrl.resourceAllocation" type="text" class="form-control group-end" placeholder="50">
                     
                     <h6 class="divider">Cost Information</h6>
                     
                     <p class="form-label"><label>Direct Labour:</label></p>
                     <div class="input-group">
                       <div class="input-group-addon">$</div>
-                      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                      <input ng-model="mainctrl.selectedRole.costs[0].amount" type="text" class="form-control"
+                             id="dlInputAmount" placeholder="Amount">
                       <div class="input-group-addon">/ hour</div>
                     </div>
                     
                     <p class="form-label"><label>Billing:</label></p>
                     <div class="input-group">
                       <div class="input-group-addon">$</div>
-                      <input type="text" class="form-control" id="exampleInputAmount" placeholder="Amount">
+                      <input ng-model="mainctrl.selectedRole.costs[1].amount" type="text" class="form-control"
+                             id="billInputAmount" placeholder="Amount">
                       <div class="input-group-addon">/ hour</div>
                     </div>
 

@@ -17,7 +17,7 @@ app.config(function ($routeProvider, $locationProvider) {
 
 
 
-app.directive('myCustomer', function () {
+app.directive('projectResource', function () {
     return {
         templateUrl: './views/card.html'
     };
@@ -41,7 +41,20 @@ app.directive('showtab',
         };
     });
 
-
+const roles = [
+    {
+        role: "QA", costs: [
+        {cost: "dl", amount: "30"},
+        {cost: "bill", amount: "35"}
+    ]
+    },
+    {
+        role: "Dev", costs: [
+        {cost: "dl", amount: "40"},
+        {cost: "bill", amount: "45"}
+    ]
+    }
+];
 
 app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout) {
 
@@ -52,21 +65,8 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
     this.totalPrice = 0;
 
     this.data = {};
-    this.data.roles = [
-        {
-            role: "QA", costs: [
-            {cost: "dl", amount: "30"},
-            {cost: "bill", amount: "35"}
-        ]
-        },
-        {
-            role: "Dev", costs: [
-            {cost: "dl", amount: "40"},
-            {cost: "bill", amount: "45"}
-        ]
-        }
-    ];
-
+    // Creating a local copy of selectedRole because the = operator creates a new reference to the same data.
+    this.data.roles = JSON.parse(JSON.stringify(roles));
 
     this.items = [
         {role: "QA Tech/Specialist I", rate: "20"},
@@ -88,29 +88,13 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
     };
 
     this.addResource = function () {
-
-        console.log("dd " + this.selectedRole);
-
         this.price.resources.unshift({
-            role: this.selectedRole
+            resource: this.selectedRole,
+            resourceName: this.resourceName,
+            resourceAllocation: this.resourceAllocation
         });
 
-        //console.log("ff " + this.price.resources[0].role.costs[1].amount)
-
-
-        // this.price.resources.unshift({
-        //     role: this.role,
-        //     rate: this.rate,
-        //     quantity: this.quantityAsNumber,
-        //     total: this.result
-        // });
-
-        this.totalPrice = this.totalPrice + this.result;
-        this.role = "";
-        this.rate = "";
-        this.quantity = "QTY:";
-        this.quantityAsNumber = "";
-        this.result = "";
+        this.data.roles = JSON.parse(JSON.stringify(roles));
     };
 
 // jQuery

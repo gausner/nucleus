@@ -1,10 +1,10 @@
-<div class="card" ng-repeat="resource in mainctrl.price.resources">
+<div class="card" ng-repeat="item in mainctrl.price.resources">
     <div class="card-block">
-        <h4 class="card-title">{{resource.role.role}}</h4>
-        <p class="card-subtitle mb-2 text-muted divider">Bob Dylan at 100% Allocation</p>
+        <h4 class="card-title">{{item.resource.role}}</h4>
+        <p class="card-subtitle mb-2 text-muted divider">{{item.resourceName}} at {{item.resourceAllocation}}% Allocation</p>
         <h6>Resource Costs</h6>
-        <p class="nobreak"><label>Direct Labour Cost:</label> {{resource.role.costs[0].amount}}</p>
-        <p><label>Billing Cost:</label> {{resource.role.costs[1].amount}}</p>
+        <p class="nobreak"><label>Direct Labour Cost:</label> {{item.resource.costs[0].amount}}</p>
+        <p><label>Billing Cost:</label> {{item.resource.costs[1].amount}}</p>
     </div>
     <div class="card-total below"><p>GP: 40%</p></div>
 </div>
