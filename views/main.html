@@ -163,35 +163,44 @@
                             ng-options="x.role for x in mainctrl.data.roles" required>
                         <option value="">Please select a role</option>
                     </select>
-
-
+                    
                     <p class="form-label"><label>Name:</label></p>
                     <input ng-model="mainctrl.resourceName" type="text" class="form-control" placeholder="Put a name..."
                            required>
 
                     <p class="form-label"><label>Project Allocation (%):</label></p>
-                    <input ng-model="mainctrl.resourceAllocation" type="text" class="form-control group-end"
-                           placeholder="50" required>
+                    <input name="allocation" ng-model="mainctrl.resourceAllocation" type="number" class="form-control group-end"
+                           placeholder="Define resource allocation" ng-min="0" ng-max="100" ng-pattern="/^[1-9][0-9]?$/" required>
+                    <span ng-messages="mainctrl.form.allocation.$error" class="alert-danger">
+                        <span ng-message="required">This field is required. Please define percentage between 0 to 100</span>
+                        <span ng-message="pattern">Must be a number between 1 and 100</span>
+                    </span>
 
                     <h6 class="divider">Cost Information</h6>
 
                     <p class="form-label"><label>Direct Labour:</label></p>
                     <div class="input-group">
                         <div class="input-group-addon">$</div>
-                        <input ng-model="mainctrl.selectedRole.costs[0].amount" type="text" class="form-control"
-                               id="dlInputAmount" placeholder="Amount" required>
+                        <input name="dl" ng-model="mainctrl.selectedRole.costs[0].amount" type="number" class="form-control"
+                               id="dlInputAmount" placeholder="Amount" ng-pattern="/^[0-9]*$/" required>
                         <div class="input-group-addon">/ hour</div>
                     </div>
+                    <span ng-messages="mainctrl.form.dl.$error" class="alert-danger">
+                        <span ng-message="pattern">DL must be greater than 0</span>
+                    </span>
 
                     <p class="form-label"><label>Billing:</label></p>
                     <div class="input-group">
                         <div class="input-group-addon">$</div>
-                        <input ng-model="mainctrl.selectedRole.costs[1].amount" type="text" class="form-control"
-                               id="billInputAmount" placeholder="Amount" required>
+                        <input name="bill" ng-model="mainctrl.selectedRole.costs[1].amount" type="text" class="form-control"
+                               id="billInputAmount" placeholder="Amount" ng-pattern="/^[0-9]*$/" required>
                         <div class="input-group-addon">/ hour</div>
                     </div>
+                    <div ng-messages="mainctrl.form.bill.$error" class="alert-danger">
+                        <span ng-message="pattern">DL must be greater than 0</span>
+                    </div>
 
-                    <button type="submit" class="btn btn-primary">Add Resource</button>
+                    <button ng-disabled="mainctrl.form.$invalid" type="submit" class="btn btn-primary">Add Resource</button>
 
                 </div>
                 <div class="card-total incomplete"><p>GP: 0%</p></div>

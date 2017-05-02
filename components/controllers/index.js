@@ -48,14 +48,14 @@ app.directive('showtab',
 const roles = [
     {
         role: "QA", costs: [
-        {cost: "dl", amount: "30"},
-        {cost: "bill", amount: "35"}
+        {cost: "dl", amount: 30},
+        {cost: "bill", amount: 35}
     ]
     },
     {
         role: "Dev", costs: [
-        {cost: "dl", amount: "40"},
-        {cost: "bill", amount: "45"}
+        {cost: "dl", amount: 40},
+        {cost: "bill", amount: 45}
     ]
     }
 ];
