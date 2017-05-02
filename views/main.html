@@ -10,17 +10,20 @@
         <div class="panel-body">
 
             <form name="summaryForm">
-                <div class="form-group has-error">
+                <div class="form-group">
                     <label for="clientName">Client Name</label>
-                    <input type="text" class="form-control" id="clientName" placeholder="Client Name" ng-model="mainctrl.price.summary.clientName" required>
+                    <input type="text" class="form-control" id="clientName" placeholder="Client Name"
+                           ng-model="mainctrl.price.summary.clientName" required>
                 </div>
-                <div class="form-group has-error">
+                <div class="form-group">
                     <label for="optName">Opportunity Name</label>
-                    <input type="text" class="form-control" id="optName" placeholder="Opportunity Name" ng-model="mainctrl.price.summary.optName" required>
+                    <input type="text" class="form-control" id="optName" placeholder="Opportunity Name"
+                           ng-model="mainctrl.price.summary.optName" required>
                 </div>
                 <div class="form-group">
                     <label for="practiceArea">Practice Area</label>
-                    <select id="practiceArea" class="form-control" ng-model="mainctrl.price.summary.practiceArea">
+                    <select id="practiceArea" class="form-control" ng-model="mainctrl.price.summary.practiceArea"
+                            required>
                         <option>Apps Data Management</option>
                         <option>Apps Development</option>
                         <option>Apps Management</option>
@@ -38,8 +41,9 @@
                 </div>
 
                 <div class="form-group">
-                    <label for="practiceArea">Practice Service (Template) </label>
-                    <select id="practiceService" class="form-control" ng-model="mainctrl.price.summary.practiceService">
+                    <label for="practiceArea">Practice Service (Template)</label>
+                    <select id="practiceService" class="form-control" ng-model="mainctrl.price.summary.practiceService"
+                            required>
                         <option>Rapid Adoption Framework</option>
                         <option>Rapid Execution Framework</option>
                     </select>
@@ -47,15 +51,12 @@
 
                 <div class="form-group">
                     <label for="priceType">Price Structure</label>
-                    <select id="priceType" class="form-control" ng-model="mainctrl.price.summary.priceStucture">
+                    <select id="priceType" class="form-control" ng-model="mainctrl.price.summary.priceStucture" required>
                         <option>Time & Material</option>
                         <option>Fix Fee</option>
                         <option>Per Unit</option>
                         <option>Time & Material To Exeed</option>
                     </select>
-                </div>
-                <div class="form-group">
-                    <button type="submit" ng-click="scrollTo('prepteamGroup')" class="btn btn-primary" >Continue</button>
                 </div>
             </form>
         </div>
@@ -69,7 +70,7 @@
             <form>
                 <div class="form-group">
                     <label for="smoArchitect">SMO Architects</label>
-                    <select id="smoArchitect" class="form-control" ng-model="mainctrl.price.team.smo">
+                    <select id="smoArchitect" class="form-control" ng-model="mainctrl.price.team.smo" required>
                         <option>Beily, Robertt</option>
                         <option>Boggalli Raghavendra, Prabhanjana</option>
                         <option>Cardinal, Meacheal John</option>
@@ -78,7 +79,7 @@
                 </div>
                 <div class="form-group">
                     <label for="propManager">Proposal Manage</label>
-                    <select id="propManager" class="form-control" ng-model="mainctrl.price.team.proposalmng">
+                    <select id="propManager" class="form-control" ng-model="mainctrl.price.team.proposalmng" required>
                         <option>Fox, Penny Lynn</option>
                         <option>Hansel, karen R</option>
                         <option>Harris, Diana</option>
@@ -86,7 +87,7 @@
                 </div>
                 <div class="form-group">
                     <label for="primPriceApp">Primary Price Approver</label>
-                    <select id="primPriceApp" class="form-control" ng-model="mainctrl.price.team.ppa">
+                    <select id="primPriceApp" class="form-control" ng-model="mainctrl.price.team.ppa" required>
                         <option>Bernal, Carli Rae</option>
                         <option>Scott, Allison Jean</option>
                         <option>Stone, Melissa Gail</option>
@@ -94,7 +95,7 @@
                 </div>
                 <div class="form-group">
                     <label for="pracArchitect">Practice Architect</label>
-                    <select id="pracArchitect" class="form-control" ng-model="mainctrl.price.team.pa">
+                    <select id="pracArchitect" class="form-control" ng-model="mainctrl.price.team.pa" required>
                         <option>Mazzetti, Sharon Coles</option>
                         <option>Mooney, Ashley Lane</option>
                         <option>patrick, Kory Devvon</option>
@@ -102,14 +103,11 @@
                 </div>
                 <div class="form-group">
                     <label for="solutionArchitect">Solution Architect</label>
-                    <select id="solutionArchitect" class="form-control" ng-model="mainctrl.price.team.sa">
+                    <select id="solutionArchitect" class="form-control" ng-model="mainctrl.price.team.sa" required>
                         <option>Adams, james Archibald</option>
                         <option>Biswas, Arpan A</option>
                         <option>Clarck, Sean</option>
                     </select>
-                </div>
-                <div class="form-group">
-                    <button type="submit" class="btn btn-primary" ng-click="scrollTo('projectResources')">Continue</button>
                 </div>
             </form>
         </div>
