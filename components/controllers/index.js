@@ -151,7 +151,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
     this.addPhases = function() {
 
 
-        this.price.phases.unshift({
+        this.price.phases.push({
             name: this.phaseName,
             weeks: this.phaseWeek,
             id: stringGen(5)
