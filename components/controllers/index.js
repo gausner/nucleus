@@ -61,19 +61,11 @@ const roles = [
 ];
 
 app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout) {
-
-
     this.price = {};
     this.quantity = "QTY: ";
     this.price.resources = [];
     this.price.phases = [];
     this.totalPrice = 0;
-
-    this.price.resources.unshift({
-        resource: roles[0],
-        resourceName: "TEST",
-        resourceAllocation: 42
-    });
 
     this.data = {};
     // Creating a local copy of selectedRole because the = operator creates a new reference to the same data.
