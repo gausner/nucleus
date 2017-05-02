@@ -128,12 +128,12 @@
                 <p class="form-label"><label>New Phase:</label></p>
 
                 <p class="form-label"><label>Name:</label></p>
-                <input type="text" class="form-control" placeholder="Phase 1">
+                <input type="text" ng-model="mainctrl.phaseName" class="form-control">
 
                 <p class="form-label"><label>Duration (Weeks)</label></p>
-                <input type="text" class="form-control group-end" placeholder="4">
+                <input type="text" ng-model="mainctrl.phaseWeek" class="form-control group-end" >
 
-                <button type="submit" class="btn btn-primary" ng-click="">Add Phase</button>
+                <button type="submit" class="btn btn-primary" ng-click="mainctrl.addPhases()">Add Phase</button>
 
             </div>
 
@@ -149,48 +149,53 @@
 
     <div project-resource=""></div>
 
+        <form class="pure-form pure-form-aligned" name="mainctrl.form" method="post"
+              ng-submit="mainctrl.form.$valid && mainctrl.addResource()"
+              novalidate autocomplete="off">
+
             <div class="card">
                 <div class="card-block">
                     <h4 class="card-title">Add a Resource</h4>
                     <h6 class="divider">Resource Information</h6>
 
                     <p class="form-label"><label>New Resource Role:</label></p>
-                    <select class="form-control" ng-model="mainctrl.selectedRole" ng-options="x.role for x in mainctrl.data.roles">
+                    <select class="form-control" ng-model="mainctrl.selectedRole" name="email"
+                            ng-options="x.role for x in mainctrl.data.roles" required>
+                        <option value="">Please select a role</option>
                     </select>
 
+
                     <p class="form-label"><label>Name:</label></p>
-                    <input ng-model="mainctrl.resourceName" type="text" class="form-control" placeholder="Put a name...">
-                    <!--<input type="text" class="form-control" placeholder="Joe Smith...">-->
-                    
+                    <input ng-model="mainctrl.resourceName" type="text" class="form-control" placeholder="Put a name..."
+                           required>
+
                     <p class="form-label"><label>Project Allocation (%):</label></p>
-                    <input ng-model="mainctrl.resourceAllocation" type="text" class="form-control group-end" placeholder="50">
-                    
+                    <input ng-model="mainctrl.resourceAllocation" type="text" class="form-control group-end"
+                           placeholder="50" required>
+
                     <h6 class="divider">Cost Information</h6>
-                    
+
                     <p class="form-label"><label>Direct Labour:</label></p>
                     <div class="input-group">
-                      <div class="input-group-addon">$</div>
-                      <input ng-model="mainctrl.selectedRole.costs[0].amount" type="text" class="form-control"
-                             id="dlInputAmount" placeholder="Amount">
-                      <div class="input-group-addon">/ hour</div>
+                        <div class="input-group-addon">$</div>
+                        <input ng-model="mainctrl.selectedRole.costs[0].amount" type="text" class="form-control"
+                               id="dlInputAmount" placeholder="Amount" required>
+                        <div class="input-group-addon">/ hour</div>
                     </div>
-                    
+
                     <p class="form-label"><label>Billing:</label></p>
                     <div class="input-group">
-                      <div class="input-group-addon">$</div>
-                      <input ng-model="mainctrl.selectedRole.costs[1].amount" type="text" class="form-control"
-                             id="billInputAmount" placeholder="Amount">
-                      <div class="input-group-addon">/ hour</div>
+                        <div class="input-group-addon">$</div>
+                        <input ng-model="mainctrl.selectedRole.costs[1].amount" type="text" class="form-control"
+                               id="billInputAmount" placeholder="Amount" required>
+                        <div class="input-group-addon">/ hour</div>
                     </div>
 
+                    <button type="submit" class="btn btn-primary">Add Resource</button>
 
-                    
-                    <!--<button type="submit" class="btn btn-primary" ng-click="planning = true">Add Resource</button>-->
-
-                    <button type="submit" class="btn btn-primary" ng-click="mainctrl.addResource()">Add Resource</button>
- 
                 </div>
                 <div class="card-total incomplete"><p>GP: 0%</p></div>
             </div>
+        </form>
     
   </div>  

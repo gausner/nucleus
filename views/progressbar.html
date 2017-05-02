@@ -1,0 +1,11 @@
+<div class="progress">
+    <div ng-repeat="phase in mainctrl.price.phases" class="progress-bar {{phase.css}}" style="{{addWeeks(phase,mainctrl.price.phases)}}">
+        {{phase.name}}
+    </div>
+</div>
+
+<!--
+<div class="progress-bar progress-bar-warning" style="width: 20%">
+</div>
+<div class="progress-bar progress-bar-danger" style="width: 10%">
+</div>-->

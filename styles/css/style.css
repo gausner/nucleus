@@ -5,10 +5,13 @@
 #bootstrap-overrides #mainpanel {
     width:80%;
     margin:0 auto;
+    margin-bottom:130px;
 }
 
 
-
+#bootstrap-overrides .navbar {
+    padding-top:20px;
+}
 
 
 #bootstrap-overrides .navbar-brand{
@@ -74,7 +77,6 @@ div#floatpanel {
 
 /*Bootstrap Overrides*/
 
-#bootstrap-overrides #mainpanel {margin-bottom:75px;}
 
 #bootstrap-overrides .panel-primary {
     border:none;
@@ -187,41 +189,76 @@ margin-bottom:20px;
     margin-bottom:25px;
 }
 
-#bootstrap-overrides footer.navbar-fixed-bottom {
+#bootstrap-overrides footer {
     padding:20px;
-    border-top:1px solid #cccccc;
     background:#4d4d4d;
     font-weight:100;
     color:#aaaaaa;
+    z-index:2;
 }
 
-#bootstrap-overrides footer.navbar-fixed-bottom .content {
+
+
+
+#bootstrap-overrides footer .content {
     width:80%;
     margin:0 auto;
 }
 
-#bootstrap-overrides footer.navbar-fixed-bottom h6 {
+#bootstrap-overrides footer h6 {
     color:#33c1ff;
 }
 
-#bootstrap-overrides footer.navbar-fixed-bottom p {
+#bootstrap-overrides footer p {
     display:inline-block;
     margin:0 8px;
     font-weight:300;
     color:#efefef;
 }
 
-#bootstrap-overrides footer.navbar-fixed-bottom label {
+#bootstrap-overrides footer label {
     font-weight:100;
     color:#ffffff;
 }
 
-#bootstrap-overrides footer.navbar-fixed-bottom p:first-child {
+#bootstrap-overrides footer p:first-child {
     margin-left:0;
 }
 
-#bootstrap-overrides footer.navbar-fixed-bottom p:last-child {
+#bootstrap-overrides footer p:last-child {
     margin-right:0;
+}
+
+#bootstrap-overrides .sticky-footer ul {
+    border:none;
+    display:block;
+    height:38px;
+    z-index:1;
+    margin-left:10%;
+}
+
+#bootstrap-overrides .sticky-footer ul:after {clear:none;}
+
+#bootstrap-overrides .sticky-footer li {display:inline-block; height:39px;}
+
+#bootstrap-overrides .sticky-footer li.active, #bootstrap-overrides .sticky-footer li.active a {
+    background:#4d4d4d;
+    color:#33c1ff;
+    border:none;
+    margin-right:2px;
+}
+
+#bootstrap-overrides .sticky-footer li a {
+    max-height:38px;
+    background:#666666;
+    color:#fefefe;
+    font-weight:100;
+    border:none;
+}
+
+#bootstrap-overrides .sticky-footer li a:hover {
+    background:#4d4d4d;
+    border-bottom:1px solid #4d4d4d;
 }
 
 #bootstrap-overrides .positive {
@@ -230,4 +267,9 @@ margin-bottom:20px;
 
 #loginForm {
 margin-top: 50px;
+}
+
+/* Validation for Project Resources */
+input.ng-invalid, select.ng-invalid {
+    border-color: red;
 }

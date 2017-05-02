@@ -1,4 +1,4 @@
-const app = angular.module('app', ['ui.bootstrap', "ngRoute"]);
+const app = angular.module('app', ['ui.bootstrap', "ngRoute", "ngMessages"]);
 
 app.config(function ($routeProvider, $locationProvider) {
 
@@ -25,6 +25,11 @@ app.directive('projectResource', function () {
 app.directive('phaseCard', function () {
     return {
         templateUrl: './views/phase.html'
+    };
+});
+app.directive('phasebar', function () {
+    return {
+        templateUrl: './views/progressbar.html'
     };
 });
 
@@ -56,11 +61,10 @@ const roles = [
 ];
 
 app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout) {
-
-
     this.price = {};
     this.quantity = "QTY: ";
     this.price.resources = [];
+    this.price.phases = [];
     this.totalPrice = 0;
 
     this.data = {};
@@ -94,6 +98,8 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         });
 
         this.data.roles = JSON.parse(JSON.stringify(roles));
+        this.resourceName = "";
+        this.resourceAllocation = "";
     };
 
 // jQuery
@@ -124,6 +130,61 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
 
     };
 
+
+
+
+
+    //hacky hacky - nothing to see here
+
+    this.addPhases = function() {
+
+        this.price.phases.unshift({
+            name: this.phaseName,
+            weeks: this.phaseWeek
+        });
+
+        this.phaseName ="";
+        this.phaseWeek ="";
+
+        addCss(this.price.phases);
+    };
+
+
+    function addCss(phases) {
+
+        var html = [
+            {progress: "progress-bar-success"},
+            {progress: "progress-bar-info"},
+            {progress: "progress-bar-warning"},
+            {progress: "progress-bar-danger"}
+        ];
+
+        for(var i=0; i < phases.length; i++){
+            if (i >= 4)
+            {
+                var x = 4;
+                x = i - x;
+                phases[i].css = html[x].progress;
+            }
+            else {
+                phases[i].css = html[i].progress;
+            }
+
+        }
+    };
+
+    $scope.addWeeks = function(phase,phases) {
+        var sum = 0;
+        for(var i=0; i < phases.length; i++){
+            sum += parseInt(phases[i].weeks);
+        }
+        var width;
+        sum = phase.weeks / sum;
+        sum = sum * 100;
+        width = "width: "+sum+"%";
+        console.log(width);
+        return width;
+    };
 
 })
 ;
