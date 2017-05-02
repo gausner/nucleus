@@ -94,8 +94,18 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         this.price.resources.unshift({
             resource: this.selectedRole,
             resourceName: this.resourceName,
-            resourceAllocation: this.resourceAllocation
+            resourceAllocation: this.resourceAllocation,
+            resourcePhase:this.selectedRolePhase.name
         });
+
+        if (this.selectedRolePhase.resources) {
+            this.selectedRolePhase.resources.push({name:this.resourceName});
+        }
+        else {
+            this.selectedRolePhase.resources = [];
+            this.selectedRolePhase.resources.push({name:this.resourceName});
+        }
+
 
         this.data.roles = JSON.parse(JSON.stringify(roles));
         this.resourceName = "";
@@ -185,7 +195,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
             }
 
         }
-    };
+    }
 
     $scope.addWeeks = function(phase,phases) {
         var sum = 0;
@@ -196,7 +206,6 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         sum = phase.weeks / sum;
         sum = sum * 100;
         width = "width: "+sum+"%";
-        console.log(width);
         return width;
     };
 
