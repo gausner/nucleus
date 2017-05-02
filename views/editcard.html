@@ -1,0 +1,71 @@
+<form class="pure-form pure-form-aligned" name="mainctrl.editform" method="post"
+      ng-submit="mainctrl.editform.$valid && mainctrl.addResource()"
+      novalidate autocomplete="off">
+
+    <div class="card">
+        <div class="card-block">
+            <h4 class="card-title">Edit Resource</h4>
+            <h6 class="divider">Resource Information</h6>
+
+            <p class="form-label"><label>Edit Resource Role:</label></p>
+            <select class="form-control" ng-model="mainctrl.price.resources[mainctrl.resourceIndex].resource" name="email"
+                    ng-options="x.role for x in mainctrl.data.roles" required>
+                <option value="">Selected role is: {{mainctrl.price.resources[mainctrl.resourceIndex].resource.role}}</option>
+            </select>
+
+            <p class="form-label"><label>Edit Name:</label></p>
+            <input ng-model="mainctrl.price.resources[mainctrl.resourceIndex].resourceName" type="text"
+                   class="form-control" placeholder="Put a name..."
+                   required>
+
+            <p class="form-label"><label>Edit Phase:</label></p>
+            <select class="form-control" ng-model="mainctrl.selectedRolePhase" name="phase"
+                    ng-options="x.name for x in mainctrl.price.phases" required>
+                <option value="">Selected phase is: {{mainctrl.price.resources[mainctrl.resourceIndex].resourcePhase}}</option>
+            </select>
+
+
+            <p class="form-label"><label>Edit Project Allocation (%):</label></p>
+            <input name="allocation" ng-model="mainctrl.price.resources[mainctrl.resourceIndex].resourceAllocation"
+                   type="number" class="form-control group-end"
+                   placeholder="Define resource allocation" ng-min="0" ng-max="100" ng-pattern="/^[1-9][0-9]?$|^100$/"
+                   required>
+            <span ng-messages="mainctrl.editform.allocation.$error" class="alert-danger">
+                        <span ng-message="required">This field is required. Please define percentage between 0 to 100</span>
+                        <span ng-message="pattern">Must be a number between 1 and 100</span>
+                    </span>
+
+            <h6 class="divider">Cost Information</h6>
+
+            <p class="form-label"><label>Edit Direct Labour:</label></p>
+            <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input name="dl" ng-model="mainctrl.price.resources[mainctrl.resourceIndex].resource.costs[0].amount"
+                       type="number" class="form-control"
+                       id="dlInputAmount" placeholder="Amount" ng-pattern="/^[0-9]*$/" required>
+                <div class="input-group-addon">/ hour</div>
+            </div>
+            <span ng-messages="mainctrl.editform.dl.$error" class="alert-danger">
+                        <span ng-message="pattern">DL must be greater than 0</span>
+                    </span>
+
+            <p class="form-label"><label>Edit Billing:</label></p>
+            <div class="input-group">
+                <div class="input-group-addon">$</div>
+                <input name="bill" ng-model="mainctrl.price.resources[mainctrl.resourceIndex].resource.costs[1].amount"
+                       type="text" class="form-control"
+                       id="billInputAmount" placeholder="Amount" ng-pattern="/^[0-9]*$/" required>
+                <div class="input-group-addon">/ hour</div>
+            </div>
+            <div ng-messages="mainctrl.editform.bill.$error" class="alert-danger">
+                <span ng-message="pattern">DL must be greater than 0</span>
+            </div>
+
+            <button ng-click="mainctrl.saveAfterEditing()">Save</button>
+            <button ng-click="mainctrl.cancelEditing()">Cancel</button>
+        </div>
+    </div>
+</form>
+
+
+

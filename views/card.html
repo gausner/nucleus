@@ -6,6 +6,7 @@
             </div>
             <div id="cardDeleteButton">
                 <button ng-click="mainctrl.deleteResource($index)">Delete</button>
+                <button id="gMap-{{::$id}}" ng-click="mainctrl.editResource($index, $event)">Edit</button>
             </div>
         </div>
         <p class="card-subtitle mb-2 text-muted divider">{{item.resourceName}} at {{item.resourceAllocation}}%
@@ -14,5 +15,9 @@
         <p class="nobreak"><label>Direct Labour Cost:</label> {{item.resource.costs[0].amount}}</p>
         <p><label>Billing Cost:</label> {{item.resource.costs[1].amount}}</p>
     </div>
+
+    <div ng-if="mainctrl.showEditor && item.resourceName === mainctrl.price.resources[mainctrl.resourceIndex].resourceName" edit-resource></div>
+
     <div class="card-total below"><p>GP: 40%</p></div>
 </div>
+

@@ -22,6 +22,12 @@ app.directive('projectResource', function () {
     };
 });
 
+app.directive('editResource', function () {
+    return {
+        templateUrl: './views/editcard.html'
+    };
+});
+
 app.directive('phaseCard', function () {
     return {
         templateUrl: './views/phase.html'
@@ -61,11 +67,20 @@ const roles = [
 ];
 
 app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout) {
+
+
     this.price = {};
     this.quantity = "QTY: ";
     this.price.resources = [];
     this.price.phases = [];
     this.totalPrice = 0;
+
+    // DEBUG: having a resource without registration
+    // this.price.resources.unshift({
+    //     resource: roles[0],
+    //     resourceName: "TEST",
+    //     resourceAllocation: 42
+    // });
 
     this.data = {};
     // Creating a local copy of selectedRole because the = operator creates a new reference to the same data.
@@ -106,7 +121,6 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
             this.selectedRolePhase.resources.push({name:this.resourceName});
         }
 
-
         this.data.roles = JSON.parse(JSON.stringify(roles));
         this.resourceName = "";
         this.resourceAllocation = "";
@@ -114,6 +128,22 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
 
     this.deleteResource = function(index){
         this.price.resources.splice(index, 1);
+    };
+
+    this.editResource = function(index, event){
+        this.oldObject = JSON.parse(JSON.stringify(this.price.resources[index]));
+        this.resourceId = event.target.id;
+        this.resourceIndex = index;
+        this.showEditor = true;
+    };
+
+    this.saveAfterEditing = function(){
+        this.showEditor = false;
+    };
+
+    this.cancelEditing = function(){
+        this.price.resources[this.resourceIndex] = this.oldObject;
+        this.showEditor = false;
     };
 
 // jQuery
