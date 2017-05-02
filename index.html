@@ -103,7 +103,7 @@
     
     <ul class="nav nav-tabs" role="tablist">
         <li  role="presentation" class="active"><a href="#home" showtab="" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-        <li  ng-repeat="phase in mainctrl.price.phases" ng-init="index = $index" role="presentation"><a href="#{{index}}" showtab="" aria-controls="profile" role="tab" data-toggle="tab">{{phase.name}} ({{phase.weeks}} Weeks)</a></li>
+        <li  ng-repeat="phase in mainctrl.price.phases" role="presentation"><a href="#{{phase.id}}" showtab="" aria-controls="profile" role="tab" data-toggle="tab">{{phase.name}} ({{phase.weeks}} Weeks)</a></li>
     </ul>
     <footer class="navbar-default">
     <!-- Tab panes -->
@@ -121,7 +121,7 @@
                 </div>
             </div>
         </div>
-        <div ng-repeat="phase in mainctrl.price.phases" ng-init="index = $index" role="tabpanel" class="tab-pane" id="{{$index}}">
+        <div ng-repeat="phase in mainctrl.price.phases" role="tabpanel" class="tab-pane" id="{{phase.id}}">
             <div role="tabpanel" class="tab-pane active">
                 <div class="container-fluid">
                     <div class="content">

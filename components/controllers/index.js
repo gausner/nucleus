@@ -136,11 +136,25 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
 
     //hacky hacky - nothing to see here
 
+    function stringGen(len)
+    {
+        var text = "";
+
+        var charset = "abcdefghijklmnopqrstuvwxyz";
+
+        for( var i=0; i < len; i++ )
+            text += charset.charAt(Math.floor(Math.random() * charset.length));
+
+        return text;
+    }
+
     this.addPhases = function() {
+
 
         this.price.phases.unshift({
             name: this.phaseName,
-            weeks: this.phaseWeek
+            weeks: this.phaseWeek,
+            id: stringGen(5)
         });
 
         this.phaseName ="";
