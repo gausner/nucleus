@@ -8,8 +8,7 @@ app.config(function ($routeProvider, $locationProvider) {
         })
         .when("/summary", {
             templateUrl: "views/summary.html"
-        })
-        .otherwise({redirectTo: '/main'});
+        }).otherwise({redirectTo: '/main'});
 });
 /**
  * Created by pguindon on 2017-04-29.

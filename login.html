@@ -2,28 +2,104 @@
 <html ng-app="app-login">
 
 <head>
-    <meta charset="UTF-8">
-    <title>Login</title>
-    <link rel='stylesheet prefetch' href='./node_modules/bootstrap/dist/css/bootstrap.min.css'>
-    <link rel="stylesheet" href="styles/css/style.css">
-    <script type="text/javascript" src="./node_modules/angular/angular.js"></script>
+	<meta charset="UTF-8">
+	<meta http-equiv="X-UA-Compatible" content="IE=edge">
+	<meta name="viewport" content="width=device-width, initial-scale=1">
+	<title>Login</title>
+	<script type="text/javascript" src="./node_modules/angular/angular.js"></script>
+	<script>
+		window.$ = window.jQuery = require('./node_modules/jquery/dist/jquery.js');
+	</script>
+
+	<!-- CSS -->
+	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
+	<link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
+	<link rel="stylesheet" href="./assets/css/form-elements.css">
+	<link rel="stylesheet" href="./assets/css/style.css">
+
 </head>
-<form class="col-md-12" id="loginForm">
-    <div id="form-container" class="container" ng-controller="login as loginctrl">
-        <h1>Login</h1>
-        <div class="form-group">
-            <input ng-model="loginctrl.username" type="text" placeholder="Username" class="form-control input-lg" id="username">
-            <input ng-model="loginctrl.password" type="password" placeholder="Password" class="form-control input-lg" id="password">
-            <button class="btn btn-info btn-lg btn-block" id="signInBtn" ng-click="loginctrl.signIn()">Sign In</button>
-            <a id="signUp" ng-click="loginctrl.signUp()">Sign Up</button>
-        </div>
-    </div>
-</form>
+
+<body>
+	
+	<form class="col-md-12" id="loginForm">
+		<div id="form-container" class="container" ng-controller="login as loginctrl">
+			<h1>Login</h1>
+			<div class="form-group">
+				<input ng-model="loginctrl.username" type="text" placeholder="Username" class="form-control input-lg" id="username" required="true">
+				<input ng-model="loginctrl.password" type="password" placeholder="Password" class="form-control input-lg" id="password" required="true">
+				<button class="btn btn-lg btn-block" id="signInBtn" ng-click="loginctrl.signIn()">Sign In</button>
+				<a id="signUp" class="launch-modal" href="#" data-modal-id="modal-register">Sign Up</a>
+			</div>
+		</div>
+	</form>
+
+
+
+	<!-- MODAL -->
+	<div class="modal fade" id="modal-register" tabindex="-1" role="dialog" ng-controller="login as registerCtrl" aria-labelledby="modal-register-label"
+	 aria-hidden="true">
+		<div class="modal-dialog">
+			<div class="modal-content">
+					<div id="alert-msg"></div>
+
+
+				<div class="modal-header">
+					<button type="button" class="close" data-dismiss="modal">
+        					<span aria-hidden="true">&times;</span><span class="sr-only">Close</span>
+        				</button>
+					<h3 class="modal-title" id="modal-register-label">Sign up now</h3>
+					<p>Fill in the form below to get instant access:</p>
+				</div>
+
+				<div class="modal-body">
+
+					<form role="form" action="" method="post" class="registration-form">
+						<div class="form-group">
+							<label class="sr-only" for="form-first-name">First name</label>
+							<input type="text" ng-model="registerCtrl.firstname" name="form-first-name" placeholder="First name..." class="form-first-name form-control"
+							 id="form-first-name">
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="form-last-name">Last name</label>
+							<input type="text" ng-model="registerCtrl.lastname" name="form-last-name" placeholder="Last name..." class="form-last-name form-control"
+							 id="form-last-name">
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="form-email">Email</label>
+							<input type="text" ng-model="registerCtrl.email" name="form-email" placeholder="Email..." class="form-email form-control"
+							 id="form-email">
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="form-username">Username*</label>
+							<input type="text" ng-model="registerCtrl.username" name="form-username" placeholder="Username..." class="form-username form-control"
+							 id="form-username" required="true">
+						</div>
+						<div class="form-group">
+							<label class="sr-only" for="form-password">Password*</label>
+							<input type="password" ng-model="registerCtrl.password" name="form-password" placeholder="Password..." class="form-password form-control"
+							 id="form-password" required="true">
+						</div>
+						<button type="submit" class="btn" ng-click="registerCtrl.signUp()">Sign me up!</button>
+					</form>
+				</div>
+
+			</div>
+		</div>
+	</div>
+
+
+	<!-- Javascript -->
+	<script>
+		require("./assets/js/jquery-1.11.1.min.js")
+
+	</script>
+	<script src="assets/bootstrap/js/bootstrap.min.js"></script>
+	<script src="assets/js/jquery.backstretch.min.js"></script>
+	<script src="assets/js/scripts.js"></script>
 
 </body>
+
 <script>
-    require("./login.js")
-
+		require("./login.js");
 </script>
-
 </html>
