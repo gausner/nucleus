@@ -273,3 +273,13 @@ margin-top: 50px;
 input.ng-invalid, select.ng-invalid {
     border-color: red;
 }
+
+#cardConatiner {
+    display: flex;
+}
+#cardRole {
+    flex: 0 0 90%;
+}
+#cardDeleteButton {
+    flex: 1;
+}
