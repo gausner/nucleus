@@ -103,51 +103,7 @@
 
 
 
-<div class="sticky-footer navbar-fixed-bottom">
-    
-    <ul class="nav nav-tabs" role="tablist">
-        <li  role="presentation" class="active"><a href="#home" showtab="" aria-controls="home" role="tab" data-toggle="tab">Home</a></li>
-        <li  ng-repeat="phase in mainctrl.price.phases" role="presentation"><a href="#{{phase.id}}" showtab="" aria-controls="profile" role="tab" data-toggle="tab">{{phase.name}} ({{phase.weeks}} Weeks)</a></li>
-    </ul>
-    <footer class="navbar-default">
-    <!-- Tab panes -->
-    <div class="tab-content">
-        <div role="tabpanel" class="tab-pane active" id="home">
-            <div class="container-fluid">
-                <div class="content">
-                    <h6>Financial Summary</h6>
-                    <div class="figures">
-                        <p><label>Gross Revenue:</label> $<span ng-bind="mainctrl.countGrossRevenu()"></span></p> |
-                        <p><label>Net Revenue:</label> $<span ng-bind="mainctrl.countGrossRevenu()"></span></p> |
-                        <p><label>Labour:</label> $<span ng-bind="mainctrl.countLabour()"></span></p> |
-                        <p><label>Profit:
-                        </label> $<span ng-bind="mainctrl.countProfit()"></span> = <span
-                                class="positive"><span ng-bind="mainctrl.countProfitPercent()"></span>%</span>
-                        </p>
-                    </div>
-                </div>
-            </div>
-        </div>
-        <div ng-repeat="phase in mainctrl.price.phases" role="tabpanel" class="tab-pane" id="{{phase.id}}">
-            <div role="tabpanel" class="tab-pane active">
-                <div class="container-fluid">
-                    <div class="content">
-                        <h6>{{phase.name}}</h6>
-                        <phasebar></phasebar>
-                        <div class="figures">
-                            <p><label>Gross Revenue:</label> $600,000</p> |
-                            <p><label>Net Revenue:</label> $300,000</p> |
-                            <p><label>Labour:</label> $100,000</p> |
-                            <p><label>Profit:</label> $300,000 = <span class="positive">50%</span></p>
-                        </div>
-                        <span  class="label label-primary" ng-repeat="res in phase.resources">{{res.name}}</span>
-                    </div>
-                </div>
-            </div>
-        </div>
-    </div>
-</footer>
-    </div>
+
 
 </body>
 </html>
