@@ -247,10 +247,13 @@
                             <h6>{{phase.name}}</h6>
                             <phasebar></phasebar>
                             <div class="figures">
-                                <p><label>Gross Revenue:</label> $600,000</p> |
-                                <p><label>Net Revenue:</label> $300,000</p> |
-                                <p><label>Labour:</label> $100,000</p> |
-                                <p><label>Profit:</label> $300,000 = <span class="positive">50%</span></p>
+                                <p><label>Gross Revenue:</label> $<span ng-bind="mainctrl.countGrossRevenuPhase(phase)"></span></p> |
+                                <p><label>Net Revenue:</label> $<span ng-bind="mainctrl.countGrossRevenuPhase(phase)"></span></p> |
+                                <p><label>Labour:</label> $<span ng-bind="mainctrl.countLabourPhase(phase)"></span></p> |
+                                <p><label>Profit:
+                                </label> $<span ng-bind="mainctrl.countProfitPhase(phase)"></span> = <span
+                                        class="positive"><span ng-bind="mainctrl.countProfitPercentPhase(phase)"></span>%</span>
+                                </p>
                             </div>
                             <span  class="label label-primary" ng-repeat="res in phase.resources">{{res.name}}</span>
                         </div>

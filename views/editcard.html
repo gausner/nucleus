@@ -19,8 +19,8 @@
                    required>
 
             <p class="form-label"><label>Edit Phase:</label></p>
-            <select class="form-control" ng-model="mainctrl.selectedRolePhase" name="phase"
-                    ng-options="x.name for x in mainctrl.price.phases" required>
+            <select class="form-control" ng-model="mainctrl.price.resources[mainctrl.resourceIndex].resourcePhase" name="phase"
+                    ng-options="option.name as option.name for option in mainctrl.price.phases" ng-change="mainctrl.updatePhase(mainctrl.resourceIndex)" required>
                 <option value="">Selected phase is: {{mainctrl.price.resources[mainctrl.resourceIndex].resourcePhase}}</option>
             </select>
 
