@@ -198,7 +198,7 @@
                     <p class="form-label"><label>Billing:</label></p>
                     <div class="input-group">
                         <div class="input-group-addon">$</div>
-                        <input name="bill" ng-model="mainctrl.selectedRole.costs[1].amount" type="text" class="form-control"
+                        <input name="bill" ng-model="mainctrl.selectedRole.costs[1].amount" type="number" class="form-control"
                                id="billInputAmount" placeholder="Amount" ng-pattern="/^[0-9]*$/" required>
                         <div class="input-group-addon">/ hour</div>
                     </div>
@@ -209,7 +209,7 @@
                     <button ng-disabled="mainctrl.form.$invalid" type="submit" class="btn btn-primary">Add Resource</button>
 
                 </div>
-                <div class="card-total incomplete"><p>GP: 0%</p></div>
+                <div class="card-total incomplete"><p>GP: <span ng-bind="mainctrl.countGp(mainctrl.selectedRole)"></span></p></div>
             </div>
         </form>
     

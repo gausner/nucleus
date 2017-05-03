@@ -147,12 +147,29 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
     this.price.phases = [];
     this.totalPrice = 0;
 
-    // DEBUG: having a resource without registration
-    // this.price.resources.unshift({
-    //     resource: roles[0],
-    //     resourceName: "TEST",
-    //     resourceAllocation: 42
-    // });
+    // DEBUG: having a phase without creation
+    this.price.phases.push({
+        name: "TestPhase",
+        weeks: "42",
+        id: stringGen(5)
+    });
+
+    // DEBUG: having a resource without adding
+    this.price.resources.unshift({
+        resource: roles[0],
+        resourceName: "TEST",
+        resourceAllocation: 42
+    });
+
+    this.countGp = function (selectedRole) {
+        if (selectedRole) {
+            var dl = selectedRole.costs[0].amount;
+            var bill = selectedRole.costs[1].amount;
+        }
+
+        let gp = dl / bill * 100;
+        return !isNaN(gp) ? Math.round(gp * 100) / 100 : "";
+    }
 
     this.data = {};
     // Creating a local copy of selectedRole because the = operator creates a new reference to the same data.

@@ -17,7 +17,7 @@
     </div>
 
     <div ng-if="mainctrl.showEditor && item.resourceName === mainctrl.price.resources[mainctrl.resourceIndex].resourceName" edit-resource></div>
-
-    <div class="card-total below"><p>GP: 40%</p></div>
+    
+    <div class="card-total below"><p>GP: <span ng-bind="mainctrl.countGp(item.resource)"></span></p></div>
 </div>
 
