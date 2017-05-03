@@ -150,7 +150,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
     // DEBUG: having a phase without creation
     this.price.phases.push({
         name: "TestPhase",
-        weeks: "42",
+        weeks: 2,
         id: stringGen(5)
     });
 
@@ -158,8 +158,46 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
     this.price.resources.unshift({
         resource: roles[0],
         resourceName: "TEST",
-        resourceAllocation: 42
+        resourceAllocation: 10,
+        resourcePhaseWeeks: this.price.phases[0].weeks
     });
+
+    this.countGrossRevenu = function(){
+        let grossRevenu = 0;
+
+        for(let i=0; i < this.price.resources.length; i++ ) {
+            const bill = this.price.resources[i].resource.costs[1].amount;
+            const weeks = this.price.resources[i].resourcePhaseWeeks;
+            const allocation = this.price.resources[i].resourceAllocation;
+
+            grossRevenu = grossRevenu + (bill * weeks * 40)/100 * allocation;
+        }
+
+        return !isNaN(grossRevenu) ? Math.round(grossRevenu * 100) / 100 : "";
+    };
+
+    this.countProfit = function () {
+        return this.countGrossRevenu() - this.countLabour();
+    };
+
+    this.countProfitPercent = function () {
+        const percentage = this.countLabour() / this.countGrossRevenu();
+        return !isNaN(percentage) ? (percentage * 100).toFixed(2) : "";
+    };
+
+    this.countLabour = function(){
+        let grossRevenu = 0;
+
+        for(let i=0; i < this.price.resources.length; i++ ) {
+            const dl = this.price.resources[i].resource.costs[0].amount;
+            const weeks = this.price.resources[i].resourcePhaseWeeks;
+            const allocation = this.price.resources[i].resourceAllocation;
+
+            grossRevenu = grossRevenu + (dl * weeks * 40)/100 * allocation;
+        }
+
+        return !isNaN(grossRevenu) ? Math.round(grossRevenu * 100) / 100 : "";
+    };
 
     this.countGp = function (selectedRole) {
         if (selectedRole) {
@@ -169,7 +207,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
 
         let gp = dl / bill * 100;
         return !isNaN(gp) ? Math.round(gp * 100) / 100 : "";
-    }
+    };
 
     this.data = {};
     // Creating a local copy of selectedRole because the = operator creates a new reference to the same data.
@@ -199,7 +237,8 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
             resource: this.selectedRole,
             resourceName: this.resourceName,
             resourceAllocation: this.resourceAllocation,
-            resourcePhase:this.selectedRolePhase.name
+            resourcePhase:this.selectedRolePhase.name,
+            resourcePhaseWeeks:this.selectedRolePhase.weeks
         });
 
         if (this.selectedRolePhase.resources) {
