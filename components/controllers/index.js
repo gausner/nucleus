@@ -154,13 +154,48 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         id: stringGen(5)
     });
 
-    // DEBUG: having a resource without adding
-    this.price.resources.unshift({
-        resource: roles[0],
-        resourceName: "TEST",
-        resourceAllocation: 10,
-        resourcePhaseWeeks: this.price.phases[0].weeks
-    });
+    // this.price.phases.push({
+    //     name: "TestPhase1",
+    //     weeks: 3,
+    //     id: stringGen(5)
+    // });
+
+    // // DEBUG: having a resource without adding
+    // this.price.resources.unshift({
+    //     resource: roles[0],
+    //     resourceName: "TEST",
+    //     resourceAllocation: 10,
+    //     resourcePhaseWeeks: this.price.phases[0].weeks,
+    //     resourcePhase: this.price.phases[0].name
+    // });
+    //
+    // this.price.resources.unshift({
+    //     resource: roles[1],
+    //     resourceName: "TEST1",
+    //     resourceAllocation: 30,
+    //     resourcePhase: this.price.phases[1].name,
+    //     resourcePhaseWeeks: this.price.phases[1].weeks
+    // });
+
+    this.countGrossRevenu1 = function(phase){
+        let grossRevenu = 0;
+
+        for(let i=0; i < this.price.resources.length; i++ ) {
+            //
+            // console.log("init " + phase.name);
+            // console.log("after " + JSON.stringify(this.price.resources[i].resourcePhase));
+
+            if (this.price.resources[i].resourcePhase === phase.name) {
+                const bill = this.price.resources[i].resource.costs[1].amount;
+                const weeks = this.price.resources[i].resourcePhaseWeeks;
+                const allocation = this.price.resources[i].resourceAllocation;
+
+                grossRevenu = grossRevenu + (bill * weeks * 40)/100 * allocation;
+            }
+        }
+
+        return !isNaN(grossRevenu) ? Math.round(grossRevenu * 100) / 100 : "";
+    };
 
     this.countGrossRevenu = function(){
         let grossRevenu = 0;
@@ -237,8 +272,8 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
             resource: this.selectedRole,
             resourceName: this.resourceName,
             resourceAllocation: this.resourceAllocation,
-            resourcePhase:this.selectedRolePhase.name,
-            resourcePhaseWeeks:this.selectedRolePhase.weeks
+            resourcePhase: this.selectedRolePhase.name,
+            resourcePhaseWeeks: this.selectedRolePhase.weeks
         });
 
         if (this.selectedRolePhase.resources) {
@@ -258,8 +293,27 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         this.price.resources.splice(index, 1);
     };
 
+    this.tttt = function(index){
+        for (var i = 0; i < this.price.phases.length; i++) {
+            if (this.price.phases[i].name === this.oldObject1.resourcePhase) {
+                for (var j = 0; j < this.price.phases[i].resources.length; j++) {
+                    if (this.price.phases[i].resources[j].name === this.price.resources[index].resourceName) {
+                        this.price.phases[i].resources.splice(j, 1);
+                    }
+                }
+            }
+            if (this.price.phases[i].name === this.price.resources[index].resourcePhase) {
+                this.price.phases[i].resources = []
+                this.price.phases[i].resources.push({name:this.price.resources[index].resourceName});
+            }
+        }
+
+        this.oldObject1.resourcePhase = this.price.resources[index].resourcePhase;
+    };
+
     this.editResource = function(index, event){
         this.oldObject = JSON.parse(JSON.stringify(this.price.resources[index]));
+        this.oldObject1 = JSON.parse(JSON.stringify(this.price.resources[index]));
         this.resourceId = event.target.id;
         this.resourceIndex = index;
         this.showEditor = true;
