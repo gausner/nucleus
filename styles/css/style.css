@@ -265,6 +265,23 @@ margin-bottom:20px;
     color:#1ad882;
 }
 
+
+/*login*/
+
+
+#bootstrap-overrides .container-narrow .container {
+  width:50%;  
+}
+
+#bootstrap-overrides .container-narrow #loginForm h1 {
+text-align:center;
+margin-bottom:40px;
+}
+
+#bootstrap-overrides .container-narrow #loginForm input {
+  margin-bottom:20px;
+}
+
 #loginForm {
 margin-top: 50px;
 }

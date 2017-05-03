@@ -15,15 +15,17 @@
 	<link rel="stylesheet" href="http://fonts.googleapis.com/css?family=Roboto:400,100,300,500">
 	<link rel="stylesheet" href="./assets/bootstrap/css/bootstrap.min.css">
 	<link rel="stylesheet" href="./assets/css/form-elements.css">
-	<link rel="stylesheet" href="./assets/css/style.css">
+	<link rel="stylesheet" href="styles/css/style.css">
 
 </head>
 
-<body>
+<body id="bootstrap-overrides">
 	
-	<form class="col-md-12" id="loginForm">
+<div id="mainpanel" class="container-narrow">
+    
+	<form class="" id="loginForm">
 		<div id="form-container" class="container" ng-controller="login as loginctrl">
-			<h1>Login</h1>
+			<h1>Sign in to PriceTag</h1>
 			<div class="form-group">
 				<input ng-model="loginctrl.username" type="text" placeholder="Username" class="form-control input-lg" id="username" required="true">
 				<input ng-model="loginctrl.password" type="password" placeholder="Password" class="form-control input-lg" id="password" required="true">
@@ -86,7 +88,7 @@
 			</div>
 		</div>
 	</div>
-
+    </div>
 
 	<!-- Javascript -->
 	<script>
