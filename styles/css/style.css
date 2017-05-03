@@ -300,3 +300,13 @@ input.ng-invalid, select.ng-invalid {
 #cardDeleteButton {
     flex: 1;
 }
+
+
+/*Amanda dont hate me for this*/
+.width-override {
+
+    margin-left: -200px; !important;
+    margin-right: -200px; !important;
+
+
+}
