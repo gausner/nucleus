@@ -2,22 +2,30 @@
 <div class="">
     <h1 class="page-header">Summary Report</h1>
 
-    <div class="row placeholders">
-        <div class="col-sm-6 ">
+    <div class="row">
+        <div class="col-sm-4 ">
             <canvas id="doughnut" class="chart chart-doughnut"
                     chart-data="chartdata" chart-labels="labels">
             </canvas>
             <h4>Weeks</h4>
             <span class="text-muted">Weeks per Phase</span>
         </div>
-        <div class="col-sm-6 ">
+        <div class="col-sm-4 ">
             <canvas id="line" class="chart chart-line" chart-data="wavedata"
                     chart-labels="wavelabels" chart-series="waveseries" chart-options="waveoptions"
                     chart-dataset-override="wavedatasetOverride" chart-click="onClick">
             </canvas>
-            <h4>Label</h4>
-            <span class="text-muted">Something else</span>
+            <h4>Cost</h4>
+            <span class="text-muted">Cost Per Phase</span>
         </div>
+        <div class="col-sm-4 ">
+            <canvas id="base" class="chart-horizontal-bar"
+                    chart-data="bardata" chart-labels="barlabels" >
+            </canvas>
+            <h4>Resources</h4>
+            <span class="text-muted">Number of Resources Per Phase</span>
+        </div>
+
 
     </div>
 
@@ -151,7 +159,6 @@
     </div>
 </div>
 
-<link rel='stylesheet prefetch' href='./node_modules/mdbootstrap/css/mdb.min.css'>
 <script>
 
 

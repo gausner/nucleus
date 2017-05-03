@@ -348,7 +348,13 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         }
     };
 
+    $scope.barlabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
+    $scope.barseries = ['Series A', 'Series B'];
 
+    $scope.bardata = [
+        [65, 59, 80, 81, 56, 55, 40],
+        [28, 48, 40, 19, 86, 27, 90]
+    ];
 
 
 
