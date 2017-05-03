@@ -1,4 +1,4 @@
-const app = angular.module('app', ['ui.bootstrap', "ngRoute", "ngMessages"]);
+const app = angular.module('app', ['ui.bootstrap', 'chart.js', "ngRoute", "ngMessages"]);
 
 app.config(function ($routeProvider, $locationProvider) {
 
@@ -53,16 +53,88 @@ app.directive('showtab',
 
 const roles = [
     {
-        role: "QA", costs: [
-        {cost: "dl", amount: 30},
-        {cost: "bill", amount: 35}
-    ]
+        role: "SDET Level 1",
+        costs: [
+            {cost: "dl", amount: 45},
+            {cost: "bill", amount: 75}
+        ]
     },
     {
-        role: "Dev", costs: [
-        {cost: "dl", amount: 40},
-        {cost: "bill", amount: 45}
-    ]
+        role: "SDET Level 2",
+        costs: [
+            {cost: "dl", amount: 55},
+            {cost: "bill", amount: 100}
+        ]
+    },
+    {
+        role: "SDET Level 3",
+        costs: [
+            {cost: "dl", amount: 65},
+            {cost: "bill", amount: 120}
+        ]
+    },
+    {
+        role: "DEV Level 1",
+        costs: [
+            {cost: "dl", amount: 45},
+            {cost: "bill", amount: 75}
+        ]
+    },
+    {
+        role: "DEV Level 2",
+        costs: [
+            {cost: "dl", amount: 55},
+            {cost: "bill", amount: 100}
+        ]
+    },
+    {
+        role: "DEV Level 3",
+        costs: [
+            {cost: "dl", amount: 65},
+            {cost: "bill", amount: 120}
+        ]
+    },
+    {
+        role: "BA Level 1",
+        costs: [
+            {cost: "dl", amount: 45},
+            {cost: "bill", amount: 75}
+        ]
+    },
+    {
+        role: "BA Level 2",
+        costs: [
+            {cost: "dl", amount: 55},
+            {cost: "bill", amount: 100}
+        ]
+    },
+    {
+        role: "BA Level 3",
+        costs: [
+            {cost: "dl", amount: 65},
+            {cost: "bill", amount: 120}
+        ]
+    },
+    {
+        role: "Architects",
+        costs: [
+            {cost: "dl", amount: 75},
+            {cost: "bill", amount: 200}
+        ]
+    },
+    {
+        role: "DM",
+        costs: [
+            {cost: "dl", amount: 75},
+            {cost: "bill", amount: 200}
+        ]
+    },
+    {
+        role: "TSM",
+        costs: [
+            {cost: "dl", amount: 75},
+            {cost: "bill", amount: 200}
+        ]
     }
 ];
 
@@ -242,6 +314,45 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         width = "width: "+sum+"%";
         return width;
     };
+
+
+    $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+    $scope.chartdata = [300, 500, 1000];
+
+    $scope.wavelabels = ["January", "February", "March", "April", "May", "June", "July"];
+    $scope.waveseries = ['Series A', 'Series B'];
+    $scope.wavedata = [
+        [65, 59, 80, 81, 56, 55, 40],
+        [28, 48, 40, 19, 86, 27, 90]
+    ];
+    $scope.onClick = function (points, evt) {
+        console.log(points, evt);
+    };
+    $scope.wavedatasetOverride = [{ yAxisID: 'y-axis-1' }, { yAxisID: 'y-axis-2' }];
+    $scope.waveoptions = {
+        scales: {
+            yAxes: [
+                {
+                    id: 'y-axis-1',
+                    type: 'linear',
+                    display: true,
+                    position: 'left'
+                },
+                {
+                    id: 'y-axis-2',
+                    type: 'linear',
+                    display: true,
+                    position: 'right'
+                }
+            ]
+        }
+    };
+
+
+
+
+
+
 
 })
 ;
