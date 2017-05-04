@@ -14,7 +14,7 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: "views/repo.html"
 
         })
-        .otherwise({redirectTo: '/main'});
+        .otherwise({ redirectTo: '/main' });
 });
 /**
  * Created by pguindon on 2017-04-29.
@@ -49,7 +49,7 @@ app.directive('showtab',
     function () {
         return {
             link: function (scope, element, attrs) {
-                element.click(function(e) {
+                element.click(function (e) {
                     e.preventDefault();
                     $(element).tab('show');
                 });
@@ -61,88 +61,107 @@ const roles = [
     {
         role: "SDET Level 1",
         costs: [
-            {cost: "dl", amount: 45},
-            {cost: "bill", amount: 75}
+            { cost: "dl", amount: 45 },
+            { cost: "bill", amount: 75 }
         ]
     },
     {
         role: "SDET Level 2",
         costs: [
-            {cost: "dl", amount: 55},
-            {cost: "bill", amount: 100}
+            { cost: "dl", amount: 55 },
+            { cost: "bill", amount: 100 }
         ]
     },
     {
         role: "SDET Level 3",
         costs: [
-            {cost: "dl", amount: 65},
-            {cost: "bill", amount: 120}
+            { cost: "dl", amount: 65 },
+            { cost: "bill", amount: 120 }
         ]
     },
     {
         role: "DEV Level 1",
         costs: [
-            {cost: "dl", amount: 45},
-            {cost: "bill", amount: 75}
+            { cost: "dl", amount: 45 },
+            { cost: "bill", amount: 75 }
         ]
     },
     {
         role: "DEV Level 2",
         costs: [
-            {cost: "dl", amount: 55},
-            {cost: "bill", amount: 100}
+            { cost: "dl", amount: 55 },
+            { cost: "bill", amount: 100 }
         ]
     },
     {
         role: "DEV Level 3",
         costs: [
-            {cost: "dl", amount: 65},
-            {cost: "bill", amount: 120}
+            { cost: "dl", amount: 65 },
+            { cost: "bill", amount: 120 }
         ]
     },
     {
         role: "BA Level 1",
         costs: [
-            {cost: "dl", amount: 45},
-            {cost: "bill", amount: 75}
+            { cost: "dl", amount: 45 },
+            { cost: "bill", amount: 75 }
         ]
     },
     {
         role: "BA Level 2",
         costs: [
-            {cost: "dl", amount: 55},
-            {cost: "bill", amount: 100}
+            { cost: "dl", amount: 55 },
+            { cost: "bill", amount: 100 }
         ]
     },
     {
         role: "BA Level 3",
         costs: [
-            {cost: "dl", amount: 65},
-            {cost: "bill", amount: 120}
+            { cost: "dl", amount: 65 },
+            { cost: "bill", amount: 120 }
         ]
     },
     {
         role: "Architects",
         costs: [
-            {cost: "dl", amount: 75},
-            {cost: "bill", amount: 200}
+            { cost: "dl", amount: 75 },
+            { cost: "bill", amount: 200 }
         ]
     },
     {
         role: "DM",
         costs: [
-            {cost: "dl", amount: 75},
-            {cost: "bill", amount: 200}
+            { cost: "dl", amount: 75 },
+            { cost: "bill", amount: 200 }
         ]
     },
     {
         role: "TSM",
         costs: [
-            {cost: "dl", amount: 75},
-            {cost: "bill", amount: 200}
+            { cost: "dl", amount: 75 },
+            { cost: "bill", amount: 200 }
         ]
     }
 ];
+
+app.controller('priceSheetCtrl', function ($scope) {
+    $scope.public_sheets = [
+        { "Name": "SDET QA PS 01", "Practice_Area": "QA Practice", "Owner": "John Doe", "Version": "1", "Last_Modified": "01:12:17", "Status": "Active" },
+        { "Name": "UI Dev", "Practice_Area": "ADM", "Owner": "Jane Doe", "Version": "1", "Last Modified": "01:12:17", "Status": "Active" },
+        { "Name": ".NET Dev", "Practice_Area": "ADM", "Owner": "McAllaster Doe", "Version": "1", "Last Modified": "01:12:17", "Status": "In-Active" },
+        { "Name": "SDET QA PS 02", "Practice_Area": "ADM", "Owner": "Sanjay Doe", "Version": "1", "Last Modified": "01:12:17", "Status": "Review" }
+    ];
+
+    $scope.statusClass = function (status) {
+        if(status === 'Active') {
+            return 'label-success';
+        } else if(status === 'Review') {
+            return 'label-warning';
+        } else {
+            return 'label-danger';
+        }
+    }
+});
 
 app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout) {
 
@@ -183,31 +202,31 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
     //     resourcePhaseWeeks: this.price.phases[1].weeks
     // });
 
-    this.countGrossRevenuPhase = function(phase){
+    this.countGrossRevenuPhase = function (phase) {
         let grossRevenu = 0;
 
-        for(let i=0; i < this.price.resources.length; i++ ) {
+        for (let i = 0; i < this.price.resources.length; i++) {
             if (this.price.resources[i].resourcePhase === phase.name) {
                 const bill = this.price.resources[i].resource.costs[1].amount;
                 const weeks = this.price.resources[i].resourcePhaseWeeks;
                 const allocation = this.price.resources[i].resourceAllocation;
 
-                grossRevenu = grossRevenu + (bill * weeks * 40)/100 * allocation;
+                grossRevenu = grossRevenu + (bill * weeks * 40) / 100 * allocation;
             }
         }
 
         return !isNaN(grossRevenu) ? Math.round(grossRevenu * 100) / 100 : "";
     };
 
-    this.countGrossRevenu = function(){
+    this.countGrossRevenu = function () {
         let grossRevenu = 0;
 
-        for(let i=0; i < this.price.resources.length; i++ ) {
+        for (let i = 0; i < this.price.resources.length; i++) {
             const bill = this.price.resources[i].resource.costs[1].amount;
             const weeks = this.price.resources[i].resourcePhaseWeeks;
             const allocation = this.price.resources[i].resourceAllocation;
 
-            grossRevenu = grossRevenu + (bill * weeks * 40)/100 * allocation;
+            grossRevenu = grossRevenu + (bill * weeks * 40) / 100 * allocation;
         }
 
         return !isNaN(grossRevenu) ? Math.round(grossRevenu * 100) / 100 : "";
@@ -246,15 +265,15 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         return !isNaN(grossRevenu) ? Math.round(grossRevenu * 100) / 100 : "";
     };
 
-    this.countLabour = function(){
+    this.countLabour = function () {
         let grossRevenu = 0;
 
-        for(let i=0; i < this.price.resources.length; i++ ) {
+        for (let i = 0; i < this.price.resources.length; i++) {
             const dl = this.price.resources[i].resource.costs[0].amount;
             const weeks = this.price.resources[i].resourcePhaseWeeks;
             const allocation = this.price.resources[i].resourceAllocation;
 
-            grossRevenu = grossRevenu + (dl * weeks * 40)/100 * allocation;
+            grossRevenu = grossRevenu + (dl * weeks * 40) / 100 * allocation;
         }
 
         return !isNaN(grossRevenu) ? Math.round(grossRevenu * 100) / 100 : "";
@@ -275,11 +294,11 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
     this.data.roles = JSON.parse(JSON.stringify(roles));
 
     this.items = [
-        {role: "QA Tech/Specialist I", rate: "20"},
-        {role: "QA Tech/Specialist II", rate: "21"},
-        {role: "QA Tech/Specialist III", rate: "22"},
-        {role: "SDET", rate: "23"},
-        {role: "Java Developer", rate: "24"}
+        { role: "QA Tech/Specialist I", rate: "20" },
+        { role: "QA Tech/Specialist II", rate: "21" },
+        { role: "QA Tech/Specialist III", rate: "22" },
+        { role: "SDET", rate: "23" },
+        { role: "Java Developer", rate: "24" }
     ];
 
     this.selectOption = function (choice) {
@@ -303,11 +322,11 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         });
 
         if (this.selectedRolePhase.resources) {
-            this.selectedRolePhase.resources.push({name:this.resourceName});
+            this.selectedRolePhase.resources.push({ name: this.resourceName });
         }
         else {
             this.selectedRolePhase.resources = [];
-            this.selectedRolePhase.resources.push({name:this.resourceName});
+            this.selectedRolePhase.resources.push({ name: this.resourceName });
         }
 
         this.data.roles = JSON.parse(JSON.stringify(roles));
@@ -315,11 +334,11 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         this.resourceAllocation = "";
     };
 
-    this.deleteResource = function(index){
+    this.deleteResource = function (index) {
         this.price.resources.splice(index, 1);
     };
 
-    this.updatePhase = function(index){
+    this.updatePhase = function (index) {
         for (var i = 0; i < this.price.phases.length; i++) {
             // Delete resource from old phase
             if (this.price.phases[i].name === this.resourceForUpdatePhase.resourcePhase) {
@@ -332,14 +351,14 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
             // add resource to new phase
             if (this.price.phases[i].name === this.price.resources[index].resourcePhase) {
                 // this.price.phases[i].resources = []
-                this.price.phases[i].resources.unshift({name:this.price.resources[index].resourceName});
+                this.price.phases[i].resources.unshift({ name: this.price.resources[index].resourceName });
             }
         }
 
         this.resourceForUpdatePhase.resourcePhase = this.price.resources[index].resourcePhase;
     };
 
-    this.editResource = function(index, event){
+    this.editResource = function (index, event) {
         this.oldObject = JSON.parse(JSON.stringify(this.price.resources[index]));
         this.resourceForUpdatePhase = JSON.parse(JSON.stringify(this.price.resources[index]));
         this.resourceId = event.target.id;
@@ -347,17 +366,17 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         this.showEditor = true;
     };
 
-    this.saveAfterEditing = function(){
+    this.saveAfterEditing = function () {
         this.showEditor = false;
     };
 
-    this.cancelEditing = function(){
+    this.cancelEditing = function () {
         this.price.resources[this.resourceIndex] = this.oldObject;
         this.updatePhase(this.resourceIndex);
         this.showEditor = false;
     };
 
-// jQuery
+    // jQuery
     $('.dropdown-menu').find('input').click(function (e) {
         e.stopPropagation();
     });
@@ -366,10 +385,10 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
     var jsonfile = require('jsonfile');
 
     var file = './data.json';
-// var obj = {name: 'JP'};
+    // var obj = {name: 'JP'};
 
 
-    const {dialog} = require('electron').remote;
+    const { dialog } = require('electron').remote;
     this.export = function () {
         jsonfile.writeFile((dialog.showSaveDialog()), this.price, function (err) {
             console.error(err)
@@ -377,8 +396,8 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
     };
 
     //Anchor scrolling
-    $scope.scrollTo = function(id) {
-        $timeout(function() {
+    $scope.scrollTo = function (id) {
+        $timeout(function () {
             $location.hash(id);
             $anchorScroll();
         }, 50)
@@ -391,19 +410,18 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
 
     //hacky hacky - nothing to see here
 
-    function stringGen(len)
-    {
+    function stringGen(len) {
         var text = "";
 
         var charset = "abcdefghijklmnopqrstuvwxyz";
 
-        for( var i=0; i < len; i++ )
+        for (var i = 0; i < len; i++)
             text += charset.charAt(Math.floor(Math.random() * charset.length));
 
         return text;
     }
 
-    this.addPhases = function() {
+    this.addPhases = function () {
 
 
         this.price.phases.push({
@@ -412,8 +430,8 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
             id: stringGen(5)
         });
 
-        this.phaseName ="";
-        this.phaseWeek ="";
+        this.phaseName = "";
+        this.phaseWeek = "";
 
         addCss(this.price.phases);
     };
@@ -422,15 +440,14 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
     function addCss(phases) {
 
         var html = [
-            {progress: "progress-bar-success"},
-            {progress: "progress-bar-info"},
-            {progress: "progress-bar-warning"},
-            {progress: "progress-bar-danger"}
+            { progress: "progress-bar-success" },
+            { progress: "progress-bar-info" },
+            { progress: "progress-bar-warning" },
+            { progress: "progress-bar-danger" }
         ];
 
-        for(var i=0; i < phases.length; i++){
-            if (i >= 4)
-            {
+        for (var i = 0; i < phases.length; i++) {
+            if (i >= 4) {
                 var x = 4;
                 x = i - x;
                 phases[i].css = html[x].progress;
@@ -442,15 +459,15 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         }
     }
 
-    $scope.addWeeks = function(phase,phases) {
+    $scope.addWeeks = function (phase, phases) {
         var sum = 0;
-        for(var i=0; i < phases.length; i++){
+        for (var i = 0; i < phases.length; i++) {
             sum += parseInt(phases[i].weeks);
         }
         var width;
         sum = phase.weeks / sum;
         sum = sum * 100;
-        width = "width: "+sum+"%";
+        width = "width: " + sum + "%";
         return width;
     };
 
@@ -500,5 +517,5 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
 
 
 })
-;
+    ;
 
