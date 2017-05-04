@@ -178,7 +178,6 @@
                     <input name="allocation" ng-model="mainctrl.resourceAllocation" type="number" class="form-control group-end"
                            placeholder="Define resource allocation" ng-min="0" ng-max="100" ng-pattern="/^[1-9][0-9]?$|^100$/" required>
                     <span ng-messages="mainctrl.form.allocation.$error" class="alert-danger">
-                        <span ng-message="required">This field is required. Please define percentage between 0 to 100</span>
                         <span ng-message="pattern">Must be a number between 1 and 100</span>
                     </span>
 
