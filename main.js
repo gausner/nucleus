@@ -6,6 +6,7 @@ const path = require('path');
 
 // Reload without rerunning app
 require('electron-reload')(__dirname);
+require('electron-debug')({showDevTools: true});
 
 // Keep a global reference of the window object, if you don't, the window will
 // be closed automatically when the JavaScript object is garbage collected.
