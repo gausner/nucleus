@@ -213,6 +213,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         return !isNaN(grossRevenu) ? Math.round(grossRevenu * 100) / 100 : "";
     };
 
+
     this.countProfit = function () {
         return this.countGrossRevenu() - this.countLabour();
     };
@@ -270,6 +271,21 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         return !isNaN(gp) ? Math.round(gp * 100) / 100 : "";
     };
 
+
+    //formats
+
+    this.grossRevForm = function() {
+        var res = this.countGrossRevenu();
+        return OSREC.CurrencyFormatter.format(res, { currency: 'USD', symbol:'$'}); // Returns ₹ 25,34,234.00
+    };
+
+    this.grossRevPhaseForm = function(phase) {
+        var res  = this.countGrossRevenuPhase(phase);
+        return OSREC.CurrencyFormatter.format(res, { currency: 'USD', symbol:'$'}); // Returns ₹ 25,34,234.00
+    };
+
+
+
     this.data = {};
     // Creating a local copy of selectedRole because the = operator creates a new reference to the same data.
     this.data.roles = JSON.parse(JSON.stringify(roles));
@@ -314,6 +330,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         this.resourceName = "";
         this.resourceAllocation = "";
     };
+
 
     this.deleteResource = function(index){
         this.price.resources.splice(index, 1);
