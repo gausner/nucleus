@@ -147,9 +147,9 @@ const roles = [
 app.controller('priceSheetCtrl', function ($scope) {
     $scope.public_sheets = [
         { "Name": "SDET QA PS 01", "Practice_Area": "QA Practice", "Owner": "John Doe", "Version": "1", "Last_Modified": "01:12:17", "Status": "Active" },
-        { "Name": "UI Dev", "Practice_Area": "ADM", "Owner": "Jane Doe", "Version": "1", "Last Modified": "01:12:17", "Status": "Active" },
-        { "Name": ".NET Dev", "Practice_Area": "ADM", "Owner": "McAllaster Doe", "Version": "1", "Last Modified": "01:12:17", "Status": "In-Active" },
-        { "Name": "SDET QA PS 02", "Practice_Area": "ADM", "Owner": "Sanjay Doe", "Version": "1", "Last Modified": "01:12:17", "Status": "Review" }
+        { "Name": "UI Dev", "Practice_Area": "ADM", "Owner": "Jane Doe", "Version": "1", "Last_Modified": "01:12:17", "Status": "Active" },
+        { "Name": ".NET Dev", "Practice_Area": "ADM", "Owner": "McAllaster Doe", "Version": "1", "Last_Modified": "01:12:17", "Status": "In-Active" },
+        { "Name": "SDET QA PS 02", "Practice_Area": "ADM", "Owner": "Sanjay Doe", "Version": "1", "Last_Modified": "01:12:17", "Status": "Review" }
     ];
 
     $scope.statusClass = function (status) {
