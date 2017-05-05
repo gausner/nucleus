@@ -174,6 +174,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
 
 
     this.price = {};
+    this.report = {};
     this.quantity = "QTY: ";
     this.price.resources = [];
     this.price.phases = [];
@@ -513,6 +514,13 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         sum = sum * 100;
         width = "width: " + sum + "%";
         return width;
+    };
+
+
+    this.genReport = function () {
+        this.report = this.price;
+        $location.path('#!/summary');
+        $scope.$apply();
     };
 
 
