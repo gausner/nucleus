@@ -3,7 +3,7 @@
         <p class="lead">Enter your project information below to generate a quick, easy pricing sheet.</p>
 </div>
 
-<form id="ff1" sclass="pure-form pure-form-aligned" angular-validator-submit="mainctrl.addResource()"
+<form id="projectForm" sclass="pure-form pure-form-aligned" angular-validator-submit="mainctrl.addResource()"
       name="form" novalidate angular-validator>
 
 <div class="panel panel-primary">
@@ -212,7 +212,7 @@
                         <div class="input-group-addon">/ hour</div>
                     </div>
 
-                    <button type="submit"  class="btn btn-primary">Add Resource</button>
+                    <button type="submit"  ng-click="mainctrl.focus()" class="btn btn-primary">Add Resource</button>
                     <button id="myselector" type="button" ng-click="form.reset()" class="btn btn-primary">Reset Form</button>
 
                 </div>

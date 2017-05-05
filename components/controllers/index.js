@@ -170,8 +170,14 @@ app.controller('priceSheetCtrl', function ($scope) {
     }
 });
 
-app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout, $route) {
+app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout, $route, $document) {
 
+    this.focus = function () {
+        $timeout(function () {
+            // angular.element('input.ng-invalid').first().focus();
+            angular.element($document[0].querySelector('#projectForm *.ng-invalid')).focus();
+        }, 250);
+    };
 
     this.price = {};
     this.report = {};
@@ -413,6 +419,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
         this.resourceId = event.target.id;
         this.resourceIndex = index;
         this.showEditor = true;
+        $route.reload();
     };
 
     this.saveAfterEditing = function () {
