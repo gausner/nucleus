@@ -146,10 +146,14 @@ const roles = [
 
 app.controller('priceSheetCtrl', function ($scope) {
     $scope.public_sheets = [
-        { "Name": "SDET QA PS 01", "Practice_Area": "QA Practice", "Owner": "John Doe", "Version": "1", "Last_Modified": "01:12:17", "Status": "Active" },
-        { "Name": "UI Dev", "Practice_Area": "ADM", "Owner": "Jane Doe", "Version": "1", "Last_Modified": "01:12:17", "Status": "Active" },
-        { "Name": ".NET Dev", "Practice_Area": "ADM", "Owner": "McAllaster Doe", "Version": "1", "Last_Modified": "01:12:17", "Status": "In-Active" },
-        { "Name": "SDET QA PS 02", "Practice_Area": "ADM", "Owner": "Sanjay Doe", "Version": "1", "Last_Modified": "01:12:17", "Status": "Review" }
+        { "Name": "SDET", "Practice_Area": "QA Practice", "Owner": "John Doe", "Version": "1.0", "Last_Modified": "1:12:17", "Access": "Public", "Status": "Active" },
+        { "Name": "System Integeration", "Practice_Area": "ADM", "Owner": "Jane Doe", "Version": "3.2.3", "Last_Modified": "7:23:15", "Access": "Private", "Status": "Active" },
+        { "Name": "Data Migration", "Practice_Area": "IT", "Owner": "Jonny Doe", "Version": "2.3", "Last_Modified": "3:15:17", "Access": "Private", "Status": "Review" },
+        { "Name": "UI UX Dev", "Practice_Area": "ADM MSC", "Owner": "Sanjay Doe", "Version": "1.0", "Last_Modified": "4:1:17", "Access": "Public", "Status": "In-Active" },
+        { "Name": "UI UX Dev", "Practice_Area": "ADM MSC", "Owner": "Sanjay Doe", "Version": "1.0", "Last_Modified": "4:1:17", "Access": "Public", "Status": "In-Active" },
+        { "Name": "UI UX Dev", "Practice_Area": "ADM Banaglore", "Owner": "Sanjay Doe", "Version": "1.0", "Last_Modified": "4:1:17", "Access": "Public", "Status": "In-Active" }
+
+
     ];
 
     $scope.statusClass = function (status) {

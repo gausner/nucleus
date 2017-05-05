@@ -310,3 +310,7 @@ input.ng-invalid, select.ng-invalid {
 
 
 }
+
+/*Repo Edit Link*/
+table#price-sheets tr td a.button { display:none;}
+table#price-sheets tr:hover td a.button { display:inline-block;}
