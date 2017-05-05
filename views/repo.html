@@ -1,10 +1,10 @@
-<div class="container-fluid" ng-controller="priceSheetCtrl" class="table-responsive" id="public_sheet" style="margin-top: 100px;">
+<div class="container-fluid width-override" ng-controller="priceSheetCtrl" class="table-responsive" id="public_sheet" style="margin-top: 100px;">
     <h2>Pricing Sheet</h2>
-    <table class="table table-sm table-hover" id="price-sheets" style="table-layout: fixed;">
+    <table class="table table-sm table-hover" id="price-sheets">
         <thead>
             <tr>
                 <th>#</th>
-                <th>Id</th>
+                <th>Name</th>
                 <th>Practice Area</th>
                 <th>Owner</th>
                 <th>Version</th>
@@ -23,8 +23,8 @@
                 <td>{{ x.Last_Modified }}</td>
                 <td><input id="sheet_access" type="checkbox" checked></td>
                 <td><span class="label" ng-class="statusClass(x.Status)">{{ x.Status }}</span></td>
-                <td style="border-top: none !important;"><a class="button">Summary</a></td>
-                <td style="border-top: none !important;"><a class="button">Edit</a></td>
+                <td ><a class="button">Summary</a></td>
+                <td ><a class="button">Edit</a></td>
             </tr>
         </tbody>
     </table>
