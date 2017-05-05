@@ -186,19 +186,19 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
     this.price.phases = [];
     this.totalPrice = 0;
 
-    // DEBUG: having a phase without creation
+    // // DEBUG: having a phase without creation
     // this.price.phases.push({
     //     name: "TestPhase",
     //     weeks: 2,
     //     id: stringGen(5)
     // });
-
+    //
     // this.price.phases.push({
     //     name: "TestPhase1",
     //     weeks: 3,
     //     id: stringGen(5)
     // });
-
+    //
     // // DEBUG: having a resource without adding
     // this.price.resources.unshift({
     //     resource: roles[0],
@@ -428,8 +428,13 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
             }
             // add resource to new phase
             if (this.price.phases[i].name === this.price.resources[index].resourcePhase) {
-                // this.price.phases[i].resources = []
-                this.price.phases[i].resources.unshift({ name: this.price.resources[index].resourceName });
+                if (this.selectedRolePhase.resources) {
+                    this.price.phases[i].resources.unshift({ name: this.price.resources[index].resourceName });
+                }
+                else {
+                    this.selectedRolePhase.resources = [];
+                    this.price.phases[i].resources.unshift({ name: this.price.resources[index].resourceName });
+                }
             }
         }
 
