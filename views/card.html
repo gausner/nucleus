@@ -3,11 +3,11 @@
         <div id="cardConatiner">
             <div id="cardRole">
                 <h4 class="card-title">{{item.resource.role}}</h4>
+                <span class="ctrl-icon edit-card" id="gMap-{{::$id}}" ng-click="mainctrl.editResource($index, $event)"></span>
+                <span class="ctrl-icon delete-card" ng-click="mainctrl.deleteResource($index)"></span>
+                
             </div>
-            <div id="cardDeleteButton">
-                <button ng-click="mainctrl.deleteResource($index)">Delete</button>
-                <button id="gMap-{{::$id}}" ng-click="mainctrl.editResource($index, $event)">Edit</button>
-            </div>
+                
         </div>
         <p class="card-subtitle mb-2 text-muted divider">{{item.resourceName}} at {{item.resourceAllocation}}%
             Allocation</p>
