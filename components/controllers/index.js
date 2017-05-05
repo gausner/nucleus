@@ -362,6 +362,8 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
         this.result = this.quantityAsNumber * this.rate;
     };
 
+    this.showProjectInfo = true;
+
     this.addResource = function () {
         this.price.resources.unshift({
             resource: this.selectedRole,
@@ -385,6 +387,14 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
         this.resourceName = "";
         this.resourceAllocation = "";
 
+        this.price.summary.defined = true;
+        this.showProjectInfo = false;
+
+        $route.reload();
+    };
+
+    this.showProjInfo = function () {
+        this.showProjectInfo = !this.showProjectInfo;
         $route.reload();
     };
 
@@ -478,6 +488,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
     }
 
     this.atLeastOnePhase = true;
+    // this.price.summary = {}
 
     this.addPhases = function () {
 

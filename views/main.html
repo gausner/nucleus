@@ -6,61 +6,67 @@
 <form id="projectForm" sclass="pure-form pure-form-aligned" angular-validator-submit="mainctrl.addResource()"
       name="form" novalidate angular-validator>
 
-<div class="panel panel-primary">
+    <div class="panel panel-primary">
         <div class="panel-heading">
             <h3 class="panel-title">Project Information</h3>
         </div>
-        <div class="panel-body">
-                <div class="form-group">
-                    <label for="clientName">Client Name</label>
-                    <input name="clientName" type="text" class="form-control" id="clientName" placeholder="Client Name"
-                           ng-model="mainctrl.price.summary.clientName"  required-message="'This field is required'" required>
-                </div>
-                <div class="form-group">
-                    <label for="optName">Opportunity Name</label>
-                    <input name="oppName" type="text" class="form-control" id="optName" placeholder="Opportunity Name"
-                           ng-model="mainctrl.price.summary.optName" required-message="'This field is required'" required>
-                </div>
-                <div class="form-group">
-                    <label for="practiceArea">Practice Area</label>
-                    <select name="practiceArea" id="practiceArea" class="form-control" ng-model="mainctrl.price.summary.practiceArea"
-                            required-message="'This field is required'" required>
-                        <option>Apps Data Management</option>
-                        <option>Apps Development</option>
-                        <option>Apps Management</option>
-                        <option>Business Intelligence</option>
-                        <option>Infrastructure Asset Inventory</option>
-                        <option>Infrastructure Asset Remarketing & Disposal</option>
-                        <option>Infrastructure CDST</option>
-                        <option>Infrastructure Deployment</option>
-                        <option>Infrastructure Support Services</option>
-                        <option>IT Service Management</option>
-                        <option>Manage Services</option>
-                        <option>Network Services</option>
-                        <option>Quality Assurance & Testing</option>
-                    </select>
-                </div>
+        <div class="panel-body" ng-show="mainctrl.showProjectInfo">
+            <div class="form-group">
+                <label for="clientName">Client Name</label>
+                <input name="clientName" type="text" class="form-control" id="clientName" placeholder="Client Name"
+                       ng-model="mainctrl.price.summary.clientName" required-message="'This field is required'"
+                       required>
+            </div>
+            <div class="form-group">
+                <label for="optName">Opportunity Name</label>
+                <input name="oppName" type="text" class="form-control" id="optName" placeholder="Opportunity Name"
+                       ng-model="mainctrl.price.summary.optName" required-message="'This field is required'" required>
+            </div>
+            <div class="form-group">
+                <label for="practiceArea">Practice Area</label>
+                <select name="practiceArea" id="practiceArea" class="form-control"
+                        ng-model="mainctrl.price.summary.practiceArea"
+                        required-message="'This field is required'" required>
+                    <option>Apps Data Management</option>
+                    <option>Apps Development</option>
+                    <option>Apps Management</option>
+                    <option>Business Intelligence</option>
+                    <option>Infrastructure Asset Inventory</option>
+                    <option>Infrastructure Asset Remarketing & Disposal</option>
+                    <option>Infrastructure CDST</option>
+                    <option>Infrastructure Deployment</option>
+                    <option>Infrastructure Support Services</option>
+                    <option>IT Service Management</option>
+                    <option>Manage Services</option>
+                    <option>Network Services</option>
+                    <option>Quality Assurance & Testing</option>
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <label for="practiceArea">Practice Service (Template)</label>
-                    <select id="practiceService" class="form-control" ng-model="mainctrl.price.summary.practiceService"
-                            >
-                        <option>Rapid Adoption Framework</option>
-                        <option>Rapid Execution Framework</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <label for="practiceArea">Practice Service (Template)</label>
+                <select id="practiceService" class="form-control" ng-model="mainctrl.price.summary.practiceService"
+                >
+                    <option>Rapid Adoption Framework</option>
+                    <option>Rapid Execution Framework</option>
+                </select>
+            </div>
 
-                <div class="form-group">
-                    <label for="priceType">Price Structure</label>
-                    <select id="priceType" class="form-control" ng-model="mainctrl.price.summary.priceStucture" >
-                        <option>Time & Material</option>
-                        <option>Fix Fee</option>
-                        <option>Per Unit</option>
-                        <option>Time & Material To Exeed</option>
-                    </select>
-                </div>
+            <div class="form-group">
+                <label for="priceType">Price Structure</label>
+                <select id="priceType" class="form-control" ng-model="mainctrl.price.summary.priceStucture">
+                    <option>Time & Material</option>
+                    <option>Fix Fee</option>
+                    <option>Per Unit</option>
+                    <option>Time & Material To Exeed</option>
+                </select>
+            </div>
         </div>
-</div>
+        <button type="submit" ng-hide="mainctrl.showProjectInfo" ng-click="mainctrl.showProjInfo()"
+                class="btn btn-primary">Edit Project Information</button>
+        <button type="submit" ng-show="mainctrl.showProjectInfo && mainctrl.price.summary.defined" ng-click="mainctrl.showProjInfo()"
+                class="btn btn-primary">Hide Project Information</button>
+    </div>
 
 
 
