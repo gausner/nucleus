@@ -10,6 +10,9 @@ app.config(function ($routeProvider, $locationProvider) {
             templateUrl: "views/summary.html"
 
         })
+        .when("/data", {
+            templateUrl: "views/data.html"
+        })
         .when("/repo", {
             templateUrl: "views/repo.html"
 
