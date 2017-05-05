@@ -389,9 +389,22 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
 
         this.price.summary.defined = true;
         this.showProjectInfo = false;
-
+        this.scrollTo('projectResources');
         $route.reload();
+
     };
+
+    this.scrollTo = function (id) {
+        $timeout(function () {
+            var old = $location.hash();
+            $location.hash(id);
+            $anchorScroll();
+            //reset to old to keep any additional routing logic from kicking in
+            $location.hash(old);
+        }, 500);
+
+    };
+
 
     this.showProjInfo = function () {
         this.showProjectInfo = !this.showProjectInfo;
