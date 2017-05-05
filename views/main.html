@@ -134,7 +134,7 @@
                            class="form-control" ng-pattern="/^[1-9].*/" ng-required="mainctrl.atLeastOnePhase"
                            required-message="'This field is required'"
                            invalid-message="'Should be greater than 0'"
-                           required>  
+                           required>
                 </div>
                 <button type="submit" class="btn btn-primary" ng-click="mainctrl.addPhases()">Add Phase</button>
             </div>
@@ -196,7 +196,7 @@
                         <div class="input-group-addon">$</div>
                         <input name="dl" ng-model="mainctrl.selectedRole.costs[0].amount" type="number"
                                class="form-control"
-                               id="dlInputAmount" placeholder="Amount" ng-pattern="/^[1-9]*$/"
+                               id="dlInputAmount" placeholder="Amount" ng-pattern="/^[0-9]*$/"
                                required-message="'This field is required'"
                                invalid-message="'DL must be greater than 0'"
                                required>
@@ -207,7 +207,7 @@
                     <div class="input-group">
                         <div class="input-group-addon">$</div>
                         <input name="bill" ng-model="mainctrl.selectedRole.costs[1].amount" type="number" class="form-control"
-                               id="billInputAmount" placeholder="Amount" ng-pattern="/^[1-9]*$/"
+                               id="billInputAmount" placeholder="Amount" ng-pattern="/^[0-9]*$/"
                                required-message="'This field is required'"
                                invalid-message="'Bill must be greater than 0'"
                                required>
