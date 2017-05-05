@@ -211,7 +211,11 @@
                 <div class="card-total incomplete"><p>GP: <span ng-bind="mainctrl.countGp(mainctrl.selectedRole)"></span></p></div>
             </div>
         </form>
-    
+
+
+        <button type="button" class="btn btn-primary">
+            <span class="glyphicon glyphicon-signal" aria-hidden="true"></span> Generate Report
+        </button>
   </div>
 
 <div class="sticky-footer navbar-fixed-bottom">
@@ -228,11 +232,11 @@
                     <div class="content">
                         <h6>Financial Summary</h6>
                         <div class="figures">
-                            <p><label>Gross Revenue:</label> $<span ng-bind="mainctrl.countGrossRevenu()"></span></p> |
-                            <p><label>Net Revenue:</label> $<span ng-bind="mainctrl.countGrossRevenu()"></span></p> |
-                            <p><label>Labour:</label> $<span ng-bind="mainctrl.countLabour()"></span></p> |
+                            <p><label>Gross Revenue:</label><span ng-bind="mainctrl.grossRevForm()"></span></p> |
+                            <p><label>Net Revenue:</label><span ng-bind="mainctrl.grossRevForm()"></span></p> |
+                            <p><label>Labour:</label><span ng-bind="mainctrl.countLabourForm()"></span></p> |
                             <p><label>Profit:
-                            </label> $<span ng-bind="mainctrl.countProfit()"></span> = <span
+                            </label><span ng-bind="mainctrl.countProfitForm()"></span> = <span
                                     class="positive"><span ng-bind="mainctrl.countProfitPercent()"></span>%</span>
                             </p>
                         </div>
@@ -246,11 +250,11 @@
                             <h6>{{phase.name}}</h6>
                             <phasebar></phasebar>
                             <div class="figures">
-                                <p><label>Gross Revenue:</label> $<span ng-bind="mainctrl.countGrossRevenuPhase(phase)"></span></p> |
-                                <p><label>Net Revenue:</label> $<span ng-bind="mainctrl.countGrossRevenuPhase(phase)"></span></p> |
-                                <p><label>Labour:</label> $<span ng-bind="mainctrl.countLabourPhase(phase)"></span></p> |
+                                <p><label>Gross Revenue:</label><span ng-bind="mainctrl.grossRevPhaseForm(phase)"></span></p> |
+                                <p><label>Net Revenue:</label><span ng-bind="mainctrl.grossRevPhaseForm(phase)"></span></p> |
+                                <p><label>Labour:</label><span ng-bind="mainctrl.countLabourPhaseForm(phase)"></span></p> |
                                 <p><label>Profit:
-                                </label> $<span ng-bind="mainctrl.countProfitPhase(phase)"></span> = <span
+                                </label><span ng-bind="mainctrl.countProfitPhaseForm(phase)"></span> = <span
                                         class="positive"><span ng-bind="mainctrl.countProfitPercentPhase(phase)"></span>%</span>
                                 </p>
                             </div>
