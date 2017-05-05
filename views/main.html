@@ -230,9 +230,9 @@
                         <div class="figures">
                             <p><label>Gross Revenue:</label><span ng-bind="mainctrl.grossRevForm()"></span></p> |
                             <p><label>Net Revenue:</label><span ng-bind="mainctrl.grossRevForm()"></span></p> |
-                            <p><label>Labour:</label><span ng-bind="mainctrl.countLabour()"></span></p> |
+                            <p><label>Labour:</label><span ng-bind="mainctrl.countLabourForm()"></span></p> |
                             <p><label>Profit:
-                            </label> $<span ng-bind="mainctrl.countProfit()"></span> = <span
+                            </label><span ng-bind="mainctrl.countProfitForm()"></span> = <span
                                     class="positive"><span ng-bind="mainctrl.countProfitPercent()"></span>%</span>
                             </p>
                         </div>
@@ -248,9 +248,9 @@
                             <div class="figures">
                                 <p><label>Gross Revenue:</label><span ng-bind="mainctrl.grossRevPhaseForm(phase)"></span></p> |
                                 <p><label>Net Revenue:</label><span ng-bind="mainctrl.grossRevPhaseForm(phase)"></span></p> |
-                                <p><label>Labour:</label><span ng-bind="mainctrl.countLabourPhase(phase)"></span></p> |
+                                <p><label>Labour:</label><span ng-bind="mainctrl.countLabourPhaseForm(phase)"></span></p> |
                                 <p><label>Profit:
-                                </label> $<span ng-bind="mainctrl.countProfitPhase(phase)"></span> = <span
+                                </label><span ng-bind="mainctrl.countProfitPhaseForm(phase)"></span> = <span
                                         class="positive"><span ng-bind="mainctrl.countProfitPercentPhase(phase)"></span>%</span>
                                 </p>
                             </div>

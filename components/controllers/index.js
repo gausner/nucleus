@@ -172,12 +172,12 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
     this.price.phases = [];
     this.totalPrice = 0;
 
-    // DEBUG: having a phase without creation
+/*    // DEBUG: having a phase without creation
     this.price.phases.push({
         name: "TestPhase",
         weeks: 2,
         id: stringGen(5)
-    });
+    });*/
 
     // this.price.phases.push({
     //     name: "TestPhase1",
@@ -303,6 +303,26 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         return OSREC.CurrencyFormatter.format(res, { currency: 'USD', symbol:'$'}); // Returns ₹ 25,34,234.00
     };
 
+
+    this.countLabourForm = function() {
+        var res = this.countLabour();
+        return OSREC.CurrencyFormatter.format(res, { currency: 'USD', symbol:'$'}); // Returns ₹ 25,34,234.00
+    };
+
+    this.countLabourPhaseForm = function(phase) {
+        var res  = this.countLabourPhase(phase);
+        return OSREC.CurrencyFormatter.format(res, { currency: 'USD', symbol:'$'}); // Returns ₹ 25,34,234.00
+    };
+
+    this.countProfitForm = function() {
+        var res = this.countProfit();
+        return OSREC.CurrencyFormatter.format(res, { currency: 'USD', symbol:'$'}); // Returns ₹ 25,34,234.00
+    };
+
+    this.countProfitPhaseForm = function(phase) {
+        var res  = this.countProfitPhase(phase);
+        return OSREC.CurrencyFormatter.format(res, { currency: 'USD', symbol:'$'}); // Returns ₹ 25,34,234.00
+    };
 
 
     this.data = {};
