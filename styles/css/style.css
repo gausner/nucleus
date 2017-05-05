@@ -286,9 +286,17 @@ margin-bottom:40px;
 margin-top: 50px;
 }
 
-/* Validation for Project Resources */
-input.ng-invalid, select.ng-invalid {
-    border-color: red;
+/*!* Validation for Project Resources *!*/
+/*input.ng-invalid, select.ng-invalid {*/
+    /*border-color: red;*/
+/*}*/
+
+/*#bootstrap-overrides label.has-error{*/
+    /*color:red;*/
+/*}*/
+
+#billInputAmount + label, #dlInputAmount + label{
+    display: none;
 }
 
 #cardConatiner {

@@ -24,6 +24,7 @@
     "angular-chart.js": "^1.1.1",
     "angular-messages": "^1.6.4",
     "angular-route": "^1.6.4",
+    "angular-validator": "^1.2.9",
     "bootstrap": "^3.3.7",
     "electron-debug": "^1.1.0",
     "electron-reload": "^1.1.0",

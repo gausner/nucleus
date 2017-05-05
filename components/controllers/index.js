@@ -1,4 +1,4 @@
-const app = angular.module('app', ['ui.bootstrap', 'chart.js', "ngRoute", "ngMessages"]);
+const app = angular.module('app', ['ui.bootstrap', 'chart.js', "ngRoute", "ngMessages", "angularValidator"]);
 
 app.config(function ($routeProvider, $locationProvider) {
 
@@ -170,7 +170,7 @@ app.controller('priceSheetCtrl', function ($scope) {
     }
 });
 
-app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout) {
+app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout, $route) {
 
 
     this.price = {};
@@ -180,12 +180,12 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
     this.price.phases = [];
     this.totalPrice = 0;
 
-/*    // DEBUG: having a phase without creation
-    this.price.phases.push({
-        name: "TestPhase",
-        weeks: 2,
-        id: stringGen(5)
-    });*/
+    // DEBUG: having a phase without creation
+    // this.price.phases.push({
+    //     name: "TestPhase",
+    //     weeks: 2,
+    //     id: stringGen(5)
+    // });
 
     // this.price.phases.push({
     //     name: "TestPhase1",
@@ -374,8 +374,12 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         }
 
         this.data.roles = JSON.parse(JSON.stringify(roles));
+        this.selectedRole = "";
+        this.selectedRolePhase = "";
         this.resourceName = "";
         this.resourceAllocation = "";
+
+        $route.reload();
     };
 
 
@@ -479,6 +483,8 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
         this.phaseWeek = "";
 
         addCss(this.price.phases);
+
+        $route.reload();
     };
 
 
