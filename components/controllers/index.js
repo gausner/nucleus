@@ -519,8 +519,9 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout)
 
     this.genReport = function () {
         this.report = this.price;
-        $location.path('#!/summary');
-        $scope.$apply();
+        $location.path('/summary');
+
+
     };
 
 
