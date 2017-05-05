@@ -90,6 +90,11 @@ div#floatpanel {
     padding-top:20px;
 }
 
+#bootstrap-overrides .panel-body {
+    padding-left:0;
+    padding-right:0;
+}
+
 #bootstrap-overrides .panel-heading {
     background:none;
     border:none;
@@ -122,11 +127,25 @@ div#floatpanel {
     opacity:1;
 }
 
+#bootstrap-overrides .btn-submit {
+    background:#26c281;
+    color:#e1fff1;
+    float:right;
+}
+
+#bootstrap-overrides .btn-submit:hover {
+    background:#049372;
+}
+
+#bootstrap-overrides .btn .glyphicon {
+    padding-right:5px;
+}
+
 #bootstrap-overrides .card {
     border:1px solid #cccccc;
     padding:20px;
     padding-bottom:0;
-    margin:15px;
+    margin:15px 0;
 }
 
 #bootstrap-overrides .card+.card {
