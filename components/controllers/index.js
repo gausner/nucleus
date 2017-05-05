@@ -477,6 +477,8 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
         return text;
     }
 
+    this.atLeastOnePhase = true;
+
     this.addPhases = function () {
 
 
@@ -490,6 +492,8 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
         this.phaseWeek = "";
 
         addCss(this.price.phases);
+
+        this.atLeastOnePhase = false;
 
         $route.reload();
     };
