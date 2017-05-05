@@ -180,7 +180,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
     };
 
     this.price = {};
-    this.report = {};
+    $scope.report = {};
     this.quantity = "QTY: ";
     this.price.resources = [];
     this.price.phases = [];
