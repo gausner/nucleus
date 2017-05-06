@@ -413,7 +413,14 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
 
 
     this.deleteResource = function (index) {
-        this.price.resources.splice(index, 1);
+        for (var i = 0; i < this.price.phases.length; i++) {
+                for (var j = 0; j < this.price.phases[i].resources.length; j++) {
+                    if (this.price.phases[i].resources[j].name === this.price.resources[index].resourceName) {
+                        this.price.phases[i].resources.splice(j, 1);
+                    }
+                }
+        }
+        this.price.resources.splice(index, 1); 
     };
 
     this.updatePhase = function (index) {
