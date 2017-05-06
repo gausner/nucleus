@@ -1,6 +1,6 @@
 {
   "name": "tekathon",
-  "productName": "nucleus",
+  "productName": "PriceTag",
   "version": "1.0.0",
   "description": "Price tag",
   "main": "main.js",
@@ -14,7 +14,7 @@
   },
   "build": {
     "appId": "com.teksystems",
-    "productName": "Pricetag"
+    "productName": "PriceTag"
   },
   "repository": "http://qcvgit02.allegisgroup.com/AutomationDemo/nucleus",
   "author": "Nucleus team",
