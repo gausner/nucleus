@@ -1,6 +1,5 @@
 <div style="height: 30px"></div>
-
-<div class="width-override">
+<!--<div class="width-override">-->
     <h1 class="page-header">Summary Report</h1>
 
 
@@ -19,57 +18,59 @@
 
 
 
-    <div class="row">
-        <div class="col-sm-4 ">
+    <div class="row report-figures-container">
+        <!--<div class="col-sm-4 ">
             <canvas id="doughnut" class="chart chart-doughnut"
                     chart-data="chartdata" chart-labels="labels">
             </canvas>
             <h4>Weeks</h4>
             <span class="text-muted">Weeks per Phase</span>
-        </div>
-        <div class="col-sm-4 ">
+        </div>-->
+        <div class="col-sm-12">
             <canvas id="line" class="chart chart-line" chart-data="wavedata"
                     chart-labels="wavelabels" chart-series="waveseries" chart-options="waveoptions"
                     chart-dataset-override="wavedatasetOverride" chart-click="onClick">
             </canvas>
-            <h4>Cost</h4>
-            <span class="text-muted">Cost Per Phase</span>
+            <h4>Total Cost: $999,999.99</h4>
+            <div class="report-figures">
+                <p><label class="phase1">Phase 1:</label> $100,000</p> | <p><label class="phase2">Phase 2:</label> $699,999.99</p> | <p><label class="phase3">Phase 3:</label> $200,000</p>
+            </div>
         </div>
-        <div class="col-sm-4 ">
+        <!--<div class="col-sm-4 ">
             <canvas id="base" class="chart-horizontal-bar"
                     chart-data="bardata" chart-labels="barlabels" >
             </canvas>
             <h4>Resources</h4>
             <span class="text-muted">Number of Resources Per Phase</span>
-        </div>
+        </div>-->
 
 
     </div>
-    <div style="height: 30px"></div>
-    <div class="row">
-        <div class="col-sm-2 ">
-            <span class="glyphicon glyphicon-star" aria-hidden="true"></span> Gross Revenue
-            <h4>$2,000,000</h4>
+
+    <div class="report-stats-container">
+        <div class="report-stats">
+            <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <h6>Gross Revenue</h6>
+            <p>$2,000,000</p>
         </div>
-        <div class="col-sm-2 ">
-            <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> Net Revenue
-            <h4>$2,000,000</h4>
+        <div class="report-stats">
+            <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> <h6>Net Revenue</h6>
+            <p>$2,000,000</p>
         </div>
-        <div class="col-sm-2 ">
-            <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> Gross Profit
-            <h4>$2,000,000</h4>
+        <div class="report-stats">
+            <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> <h6>Gross Profit</h6>
+            <p>40% ($2M)</p>
         </div>
-        <div class="col-sm-2 ">
+        <!--<div class="col-sm-2 ">
             <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span> GP %
             <h4>40%</h4>
+        </div>-->
+        <div class="report-stats">
+            <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> <h6>Payback Period</h6>
+            <p>14 Weeks</p>
         </div>
-        <div class="col-sm-2 ">
-            <span class="glyphicon glyphicon-repeat" aria-hidden="true"></span> Payback Period
-            <h4>14 Weeks</h4>
-        </div>
-        <div class="col-sm-2 ">
-            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> P/Week Running Cost
-            <h4>$2,000,000</h4>
+        <div class="report-stats">
+            <span class="glyphicon glyphicon-refresh" aria-hidden="true"></span> <h6>Weekly Cost</h6>
+            <p>$2,000</p>
         </div>
     </div>
 
@@ -110,7 +111,7 @@
             </tbody>
         </table>
     </div>
-</div>
+<!--</div>-->
 
 <script>
 
