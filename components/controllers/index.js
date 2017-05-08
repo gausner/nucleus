@@ -572,21 +572,52 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
 
     this.genReport = function () {
         this.report = this.price;
+
+        $scope.wavelabels = this.rptphaseLabels(this.report.phases);
+        $scope.wavedata[0] = this.rptphaseCost(this.report.phases);
+        $scope.wavedata[1] = this.rptphaseRev(this.report.phases);
+
         $location.path('/summary');
 
 
     };
 
 
-    $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
-    $scope.chartdata = [300, 500, 1000];
+/*    $scope.labels = ["Download Sales", "In-Store Sales", "Mail-Order Sales"];
+    $scope.chartdata = [300, 500, 1000];*/
 
-    $scope.wavelabels = ["January", "February", "March", "April", "May", "June", "July"];
-    $scope.waveseries = ['Series A', 'Series B'];
-    $scope.wavedata = [
+
+    this.rptphaseLabels = function (phases) {
+        var list = [];
+        for (var i = 0; i < phases.length; i++) {
+            list.push(phases[i].name);
+        }
+        return list;
+    };
+    this.rptphaseCost = function (phases) {
+        var list = [];
+        for (var i = 0; i < phases.length; i++) {
+            list.push(this.countLabourPhase(phases[i]));
+        }
+        return list;
+    };
+    this.rptphaseRev = function (phases) {
+        var list = [];
+        for (var i = 0; i < phases.length; i++) {
+            list.push(this.countProfitPhase(phases[i]));
+        }
+        return list;
+    };
+
+
+    $scope.wavelabels = [];
+    $scope.waveseries = ['Revenue', 'Cost'];
+    $scope.wavedata = [[],[]];
+ /*   $scope.wavedata = [
         [65, 59, 80, 81, 56, 55, 40],
         [28, 48, 40, 19, 86, 27, 90]
-    ];
+    ];*/
+
     $scope.onClick = function (points, evt) {
         console.log(points, evt);
     };
@@ -610,6 +641,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
         }
     };
 
+/*
     $scope.barlabels = ['2006', '2007', '2008', '2009', '2010', '2011', '2012'];
     $scope.barseries = ['Series A', 'Series B'];
 
@@ -617,6 +649,7 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
         [65, 59, 80, 81, 56, 55, 40],
         [28, 48, 40, 19, 86, 27, 90]
     ];
+*/
 
 
 

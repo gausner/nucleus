@@ -5,14 +5,19 @@
 
     <div class="row">
         <div class="col-sm-4 ">
-            {{mainctrl.report}}
-            <h5>Client Name <span class="label label-Info">{{mainctrl.report.summary.valueOf('clientName')}}</span></h5>
+            <h5>Client Name <span class="label label-default">{{mainctrl.report.summary.clientName}}</span></h5>
+            <h5>Opportunity Name <span class="label label-default">{{mainctrl.report.summary.optName}}</span></h5>
+            <h5>Price Structure <span class="label label-default">{{mainctrl.report.summary.priceStucture}}</span></h5>
         </div>
         <div class="col-sm-4 ">
-
+            <h5>Practice Area <span class="label label-primary">{{mainctrl.report.summary.practiceArea}}</span></h5>
+            <h5>Practice Service <span class="label label-primary">{{mainctrl.report.summary.practiceService}}</span></h5>
+            <h5>Practice Architect <span class="label label-primary">{{mainctrl.report.team.pa}}</span></h5>
         </div>
         <div class="col-sm-4 ">
-
+            <h5>SMO Architects <span class="label label-warning">{{mainctrl.report.team.smo}}</span></h5>
+            <h5>Proposal Manage <span class="label label-warning">{{mainctrl.report.team.proposalmng}}</span></h5>
+            <h5>Solution Architect <span class="label label-warning">{{mainctrl.report.team.sa}}</span></h5>
         </div>
     </div>
 
@@ -31,6 +36,7 @@
                     chart-labels="wavelabels" chart-series="waveseries" chart-options="waveoptions"
                     chart-dataset-override="wavedatasetOverride" chart-click="onClick">
             </canvas>
+
             <h4>Total Cost: $999,999.99</h4>
             <div class="report-figures">
                 <p><label class="phase1">Phase 1:</label> $100,000</p> | <p><label class="phase2">Phase 2:</label> $699,999.99</p> | <p><label class="phase3">Phase 3:</label> $200,000</p>
