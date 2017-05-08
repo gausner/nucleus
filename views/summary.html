@@ -37,9 +37,9 @@
                     chart-dataset-override="wavedatasetOverride" chart-click="onClick">
             </canvas>
 
-            <h4>Total Cost: $999,999.99</h4>
-            <div class="report-figures">
-                <p><label class="phase1">Phase 1:</label> $100,000</p> | <p><label class="phase2">Phase 2:</label> $699,999.99</p> | <p><label class="phase3">Phase 3:</label> $200,000</p>
+            <h4>Total Cost: {{mainctrl.countLabourForm()}}</h4>
+            <div class="report-figures" >
+                <p ng-repeat="phase in mainctrl.report.phases"><label class="phase1">{{phase.name}}:</label> {{mainctrl.countLabourPhaseForm(phase)}}</p> |
             </div>
         </div>
         <!--<div class="col-sm-4 ">
@@ -56,15 +56,15 @@
     <div class="report-stats-container">
         <div class="report-stats">
             <span class="glyphicon glyphicon-star" aria-hidden="true"></span> <h6>Gross Revenue</h6>
-            <p>$2,000,000</p>
+            <p>{{mainctrl.grossRevForm()}}</p>
         </div>
         <div class="report-stats">
             <span class="glyphicon glyphicon-usd" aria-hidden="true"></span> <h6>Net Revenue</h6>
-            <p>$2,000,000</p>
+            <p>${{mainctrl.grossRevForm()}}</p>
         </div>
         <div class="report-stats">
             <span class="glyphicon glyphicon-equalizer" aria-hidden="true"></span> <h6>Gross Profit</h6>
-            <p>40% ($2M)</p>
+            <p>{{mainctrl.countProfitPercent()}}% ({{mainctrl.countProfitForm()}})</p>
         </div>
         <!--<div class="col-sm-2 ">
             <span class="glyphicon glyphicon-piggy-bank" aria-hidden="true"></span> GP %
@@ -80,7 +80,7 @@
         </div>
     </div>
 
-    <h2 class="sub-header">Resource Plan</h2>
+    <h2 class="sub-header">Resource Plan - Phase 1</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -94,19 +94,9 @@
                 <th>Allocation</th>
             </tr>
             </thead>
-
             <tbody>
-            <tr>
-                <td>Phase 1</td>
-                <td>Patrick</td>
-                <td>QA Architect</td>
-                <td>75$/H</td>
-                <td>200$/H</td>
-                <td>10 Weeks</td>
-                <td>100%</td>
-            </tr>
-            <tr>
-                <td>Phase 1</td>
+            <tr ng-repeat="phase in mainctrl.report.phases">
+                <td>{{phase.name}}</td>
                 <td>Patrick</td>
                 <td>QA Architect</td>
                 <td>75$/H</td>
