@@ -80,7 +80,7 @@
         </div>
     </div>
 
-    <h2 class="sub-header">Resource Plan - Phase 1</h2>
+    <h2 class="sub-header">Resource Plan</h2>
     <div class="table-responsive">
         <table class="table table-striped">
             <thead>
@@ -95,14 +95,14 @@
             </tr>
             </thead>
             <tbody>
-            <tr ng-repeat="phase in mainctrl.report.phases">
-                <td>{{phase.name}}</td>
-                <td>Patrick</td>
-                <td>QA Architect</td>
-                <td>75$/H</td>
-                <td>200$/H</td>
-                <td>10 Weeks</td>
-                <td>100%</td>
+            <tr ng-repeat="item in mainctrl.report.resources">
+                <td>{{item.resourcePhase}}</td>
+                <td>{{item.resourceName}}</td>
+                <td>{{item.resource.role}}</td>
+                <td>{{item.resource.costs[0].amount}}$/H</td>
+                <td>{{item.resource.costs[1].amount}}$/H</td>
+                <td>{{item.resourcePhaseWeeks}} Weeks</td>
+                <td>{{item.resourceAllocation}}%</td>
             </tr>
             </tbody>
         </table>
