@@ -420,28 +420,25 @@ app.controller('MainCtrl', function ($scope, $location, $anchorScroll, $timeout,
                     }
                 }
         }
-        this.price.resources.splice(index, 1); 
+        this.price.resources.splice(index, 1);
     };
 
     this.updatePhase = function (index) {
+
         for (var i = 0; i < this.price.phases.length; i++) {
             // Delete resource from old phase
             if (this.price.phases[i].name === this.resourceForUpdatePhase.resourcePhase) {
                 for (var j = 0; j < this.price.phases[i].resources.length; j++) {
                     if (this.price.phases[i].resources[j].name === this.price.resources[index].resourceName) {
                         this.price.phases[i].resources.splice(j, 1);
+                        break;
                     }
                 }
             }
             // add resource to new phase
             if (this.price.phases[i].name === this.price.resources[index].resourcePhase) {
-                if (this.selectedRolePhase.resources) {
-                    this.price.phases[i].resources.unshift({ name: this.price.resources[index].resourceName });
-                }
-                else {
-                    this.selectedRolePhase.resources = [];
-                    this.price.phases[i].resources.unshift({ name: this.price.resources[index].resourceName });
-                }
+                this.price.phases[i].resources = [];
+                this.price.phases[i].resources.unshift({name: this.price.resources[index].resourceName});
             }
         }
 
