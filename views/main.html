@@ -1,6 +1,6 @@
 <div class="jumbotron welcome">
         <h1>Project Pricing Made Easier</h1>
-        <p class="lead">Enter your project information below to generate a quick, easy pricing sheet.</p>
+        <p class="lead">Enter your project information below to generate a quick & easy pricing sheet.</p>
 </div>
 
 <form id="projectForm" sclass="pure-form pure-form-aligned" angular-validator-submit="mainctrl.addResource()"
@@ -72,7 +72,7 @@
 
     <div class="panel panel-primary" id="prepteamGroup">
         <div class="panel-heading">
-            <h3 class="panel-title">Preperation Team</h3>
+            <h3 class="panel-title">Preparation Team</h3>
         </div>
         <div class="panel-body">
                 <div class="form-group">
@@ -85,7 +85,7 @@
                     </select>
                 </div>
                 <div class="form-group">
-                    <label for="propManager">Proposal Manage</label>
+                    <label for="propManager">Proposal Manager</label>
                     <select id="propManager" class="form-control" ng-model="mainctrl.price.team.proposalmng" >
                         <option>Fox, Penny Lynn</option>
                         <option>Hansel, karen R</option>
@@ -173,7 +173,7 @@
 
                     <div class="form-group">
                     <p class="form-label"><label>Name:</label></p>
-                    <input name="resourceName" ng-model="mainctrl.resourceName" type="text" class="form-control" placeholder="Put a name..."
+                    <input name="resourceName" ng-model="mainctrl.resourceName" type="text" class="form-control" placeholder="Please add a name..."
                            required-message="'This field is required'" required>
                     </div>
 
@@ -197,7 +197,7 @@
 
                     <h6 class="divider">Cost Information</h6>
 
-                    <p class="form-label"><label>Direct Labour:</label></p>
+                    <p class="form-label"><label>Direct Labor:</label></p>
                     <div class="input-group">
                         <div class="input-group-addon">$</div>
                         <input name="dl" ng-model="mainctrl.selectedRole.costs[0].amount" type="number"
@@ -251,7 +251,7 @@
                         <div class="figures">
                             <p><label>Gross Revenue:</label><span ng-bind="mainctrl.grossRevForm()"></span></p> |
                             <p><label>Net Revenue:</label><span ng-bind="mainctrl.grossRevForm()"></span></p> |
-                            <p><label>Labour:</label><span ng-bind="mainctrl.countLabourForm()"></span></p> |
+                            <p><label>Labor:</label><span ng-bind="mainctrl.countLabourForm()"></span></p> |
                             <p><label>Profit:
                             </label><span ng-bind="mainctrl.countProfitForm()"></span> = <span
                                     class="positive"><span ng-bind="mainctrl.countProfitPercent()"></span>%</span>
@@ -269,7 +269,7 @@
                             <div class="figures">
                                 <p><label>Gross Revenue:</label><span ng-bind="mainctrl.grossRevPhaseForm(phase)"></span></p> |
                                 <p><label>Net Revenue:</label><span ng-bind="mainctrl.grossRevPhaseForm(phase)"></span></p> |
-                                <p><label>Labour:</label><span ng-bind="mainctrl.countLabourPhaseForm(phase)"></span></p> |
+                                <p><label>Labor:</label><span ng-bind="mainctrl.countLabourPhaseForm(phase)"></span></p> |
                                 <p><label>Profit:
                                 </label><span ng-bind="mainctrl.countProfitPhaseForm(phase)"></span> = <span
                                         class="positive"><span ng-bind="mainctrl.countProfitPercentPhase(phase)"></span>%</span>
